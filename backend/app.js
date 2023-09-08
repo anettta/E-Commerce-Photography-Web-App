@@ -36,7 +36,7 @@ app.use("/api/v1", order);
 app.use("/api/v1", payment);
 
 if (process.env.NODE_ENV === "PRODUCTION") {
-  app.use(express.static(path.join(__dirname, "../frontend/myapp/build")));
+  app.use(express.static(path.join(__dirname, "/frontend/myapp/build")));
 
   app.get("*", (req, res) => {
     res.sendFile(
