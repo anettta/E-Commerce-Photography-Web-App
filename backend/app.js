@@ -46,4 +46,8 @@ if (process.env.NODE_ENV === "PRODUCTION") {
 // Middleware to handle errors globally
 app.use(errorMiddleware);
 
+// setting up config file
+if (process.env.NODE_ENV !== "PRODUCTION")
+  require("dotenv").dotenv.config({ path: "config.env" });
+
 module.exports = app;
