@@ -12,7 +12,7 @@
     "prod": "set NODE_ENV=PRODUCTION& nodemon backend/server",
     "seeder": "node backend/utils/seeder.js",
     "server": "nodemon index.js --ignore client",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend/myapp && npm run build --prefix frontend/myapp"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend/myapp --force && npm run build --prefix frontend/myapp"
   },
   "author": "Anna Gapyuk",
   "license": "ISC",
