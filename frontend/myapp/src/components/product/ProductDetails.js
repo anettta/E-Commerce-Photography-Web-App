@@ -13,6 +13,7 @@ import { Carousel } from "react-bootstrap";
 import { addItemToCart } from "../../actions/cartActions";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 import ListReviews from "../review/ListReviews";
+import Product from "./Product";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,14 @@ const ProductDetails = () => {
   const { error: reviewError, success } = useSelector(
     (state) => state.newReview
   );
+  const { products } = useSelector((state) => state.products);
+  const currentCategory = product.category;
+  const currentProductId = product._id;
+  let filteredProducts = products.filter(
+    (product) =>
+      product.category === currentCategory && product._id !== currentProductId
+  );
+
   useEffect(() => {
     dispatch(getProductDetails(params.id));
     if (error) {
@@ -290,6 +299,17 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
+            <Fragment>
+              <div className="col-12 col-md-6 text-center">
+                {filteredProducts.length > 0 && <h1>Related Products</h1>}
+              </div>
+
+              <div className="row ">
+                {filteredProducts.map((product) => (
+                  <Product key={product._id} product={product} col={4} />
+                ))}
+              </div>
+            </Fragment>
           </div>
 
           {product.reviews && product.reviews.length > 0 && (

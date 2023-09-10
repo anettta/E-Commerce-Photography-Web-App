@@ -2,9 +2,9 @@ import React, { Fragment } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
-
+import Nav from "react-bootstrap/Nav";
 import "../../App.css";
-
+import Navbar from "react-bootstrap/Navbar";
 import Search from "./Search";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../actions/userActions";
@@ -45,47 +45,65 @@ const Header = () => {
           <p className="text-center m-2">20% OF ALL SALES GO TO HELP UKRAINE</p>
         </div>
       </div>
-      <nav className="navbar row">
-        <div className="col-12 col-md-3">
-          <div className="navbar-brand text-lg-left text-center">
-            <Link to="/">
-              <img
-                classname="img-fluid"
-                style={{ width: "25%" }}
-                alt="logo"
-                src="/images/logo.png"
-              />
+      <>
+        <style type="text/css">
+          {`.customStyle{
+        background-color: #3bb293;
+      color: #f0faf7;
+margin-left:85%;
+margin-top:-25%;
+
+  
+
+
+      }
+     
+      
+      `}
+        </style>
+      </>
+      <Navbar expand="lg" variant="light">
+        <Navbar.Brand>
+          <Link to="/">
+            <img
+              classname="img-fluid"
+              style={{ width: "25%" }}
+              alt="logo"
+              src="/images/logo.png"
+            />
+          </Link>
+        </Navbar.Brand>
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav "
+          className="customStyle"
+        />
+        <Navbar.Collapse>
+          <div className="col-12 col-md-6 mt-2 mt-md-0">
+            <Search />
+          </div>
+          <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
+            <Link to="/cart" style={{ textDecoration: "none" }}>
+              <i
+                className="fa"
+                style={{
+                  fontSize: "24px",
+                  color: "#3bb293",
+                  padding: "7px",
+                }}
+              >
+                &#xf07a;
+              </i>
+
+              <span className="badge" id="lblCartCount">
+                {cartItems.length}
+              </span>
             </Link>
           </div>
-        </div>
-
-        <div className="col-12 col-md-6 mt-2 mt-md-0">
-          <Search />
-        </div>
-
-        <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-          <Link to="/cart" style={{ textDecoration: "none" }}>
-            <i
-              className="fa"
-              style={{
-                fontSize: "24px",
-                color: "#3bb293",
-                padding: "7px",
-              }}
-            >
-              &#xf07a;
-            </i>
-
-            <span className="badge" id="lblCartCount">
-              {cartItems.length}
-            </span>
-          </Link>
-
           {user ? (
-            <div className="ml-4 dropdown d-inline">
+            <div className="ml-4 dropdown d-inline ">
               <Link
                 to="#!"
-                className="btn  dropdown-toggle mr-4 "
+                className="btn dropdown-toggle mr-2"
                 type="button"
                 id="dropDownMenuButton"
                 data-toggle="dropdown"
@@ -133,8 +151,8 @@ const Header = () => {
               </Link>
             )
           )}
-        </div>
-      </nav>
+        </Navbar.Collapse>
+      </Navbar>
     </Fragment>
   );
 };
