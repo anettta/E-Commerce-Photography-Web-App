@@ -23,9 +23,10 @@ const Header = () => {
   };
   return (
     <Fragment>
-      <div className="">
+      <div className="col-12 col-12 fs-1 fs-6">
         <div
           id=""
+          className="col-12 col-12 "
           style={{
             display: "flex",
             justifyContent: "center",
@@ -33,7 +34,7 @@ const Header = () => {
             textAlign: "center",
             fontWeight: "900",
             color: "#36454f",
-            backgroundColor: "#A5E1D1",
+            // backgroundColor: "#A5E1D1",
           }}
         >
           <img

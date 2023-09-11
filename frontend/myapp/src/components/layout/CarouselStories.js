@@ -20,7 +20,14 @@ const CarouselStories = () => {
       },
     },
   ];
-  const images = ["/images/1.jpeg", "/images/2.jpeg", "/images/1.jpeg"];
+  const images = [
+    "/images/1.jpeg",
+    "/images/2.jpeg",
+    "/images/3.jpg",
+    "/images/4.jpg",
+    "/images/5.jpg",
+    "/images/6.jpg",
+  ];
 
   return (
     <div>
@@ -35,7 +42,7 @@ const CarouselStories = () => {
           <div className="each-slide-effect">
             <div
               className="img-fluid"
-              style={{ backgroundImage: `url(${images[0]})` }}
+              style={{ backgroundImage: `url(${images[3]})` }}
             >
               <div className="text-center">
                 <h1 className="title">Culebra</h1>
@@ -48,7 +55,7 @@ const CarouselStories = () => {
           <div className="each-slide-effect">
             <div
               className="img-fluid"
-              style={{ backgroundImage: `url(${images[1]})` }}
+              style={{ backgroundImage: `url(${images[4]})` }}
             >
               <div className="text-center">
                 <h1 className="title">Central Park</h1>
@@ -61,7 +68,7 @@ const CarouselStories = () => {
           <div className="each-slide-effect">
             <div
               className="img-fluid"
-              style={{ backgroundImage: `url(${images[2]})` }}
+              style={{ backgroundImage: `url(${images[5]})` }}
             >
               <div className="text-center">
                 <h1 className="title">Aspen</h1>
@@ -72,7 +79,7 @@ const CarouselStories = () => {
         </div>
       </Zoom>
       <div>
-        <Fragment>
+        {/* <Fragment>
           <div className="">
             <h1 className="my-4">Stories</h1>
 
@@ -125,7 +132,7 @@ const CarouselStories = () => {
               </div>
             </Slide>
           </div>
-        </Fragment>
+        </Fragment> */}
       </div>
     </div>
   );

@@ -64,12 +64,8 @@ const Home = () => {
       ) : (
         <div>
           <MetaData title={"Anna Gapyuk Creative Studio"} />
-          {!keyword && (
-            <div className="m-5">
-              <CarouselStories />
-            </div>
-          )}
-          <h1 id="products_heading">Latest Products</h1>
+          {!keyword && <div className="m-5">{/* <CarouselStories /> */}</div>}
+          <h3 id="products_heading">Latest Products</h3>
           <section id="products" className="container mt-5">
             <div className="row">
               {keyword ? (
