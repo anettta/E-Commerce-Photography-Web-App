@@ -22,16 +22,14 @@ const Header = () => {
     dispatch(clearCart(cartItems));
     alert.success("Logged out successfully");
   };
-  // const params = useParams();
-  // const keyword = params.keyword;
 
   return (
     <Fragment>
-      {/* <div className="col-12 col-12 ">
-        <p className=" alert alert-info m-0 p-0 w-100 text-center">
+      <div className=" ">
+        <p className=" alert alert-success m-0 p-0 w-100 text-center">
           <em>20% OF ALL SALES GO TO HELP UKRAINE</em>
         </p>
-      </div> */}
+      </div>
       <>
         <style type="text/css">
           {`.customStyle{
@@ -55,7 +53,7 @@ margin-top:-25%;
           <Link to="/">
             <img
               classname="img-fluid"
-              style={{ width: "25%" }}
+              style={{ width: "20%" }}
               alt="logo"
               src="/images/logo.png"
             />
