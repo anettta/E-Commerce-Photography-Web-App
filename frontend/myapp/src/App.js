@@ -66,11 +66,13 @@ function App() {
     getStripeApiKey();
   }, []);
   const { user, isAuthenticated, loading } = useSelector((state) => state.auth);
+
   return (
     !loadLogo && (
       <Router>
         <div className="App">
           <Header />
+
           <div className="container container-fluid">
             <Routes>
               <Route path="/" element={<Home />} exact />

@@ -9,7 +9,8 @@ import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import CarouselStories from "./layout/CarouselStories";
+import Content from "./layout/Content";
+// import CarouselStories from "./layout/CarouselStories";
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -56,7 +57,7 @@ const Home = () => {
   if (keyword) {
     count = filteredProductsCount;
   }
-
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
   return (
     <Fragment>
       {loading ? (
@@ -64,8 +65,13 @@ const Home = () => {
       ) : (
         <div>
           <MetaData title={"Anna Gapyuk Creative Studio"} />
-          {!keyword && <div className="m-5">{/* <CarouselStories /> */}</div>}
+
+          {!loading &&
+            !keyword &&
+            (!isAuthenticated || user.role !== "admin") && <Content />}
+
           <h3 id="products_heading">Latest Products</h3>
+
           <section id="products" className="container mt-5">
             <div className="row">
               {keyword ? (
@@ -152,13 +158,9 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <div className="col-6 col-md-9">
-                    <div className="row">
-                      {products?.map((product) => (
-                        <Product key={product._id} product={product} col={4} />
-                      ))}
-                    </div>
-                  </div>
+                  {products?.map((product) => (
+                    <Product key={product._id} product={product} col={4} />
+                  ))}
                 </Fragment>
               ) : (
                 products?.map((product) => (
@@ -167,6 +169,7 @@ const Home = () => {
               )}
             </div>
           </section>
+
           {resPerPage <= count && (
             <div className="pagination justify-content-center">
               <Pagination
