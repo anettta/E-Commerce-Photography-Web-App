@@ -70,25 +70,16 @@ const Home = () => {
             !keyword &&
             (!isAuthenticated || user.role !== "admin") && <Content />}
 
-          {products ? (
-            <h3
-              id="products_heading"
-              className="text-center alert alert-success"
-            >
-              Latest Artworks
-            </h3>
-          ) : (
-            <h3
-              id="products_heading"
-              className="text-center alert alert-danger"
-            >
-              No Artworks found
-            </h3>
-          )}
-
+          <h3 id="products_heading" className="text-center ">
+            {count > 0 ? (
+              <p style={{ color: "#36454f" }}>artworks</p>
+            ) : (
+              <p style={{ color: "#ce6c86" }}>no artworks found</p>
+            )}
+          </h3>
           <section id="products" className="container mt-5">
             <div className="row">
-              {keyword && products ? (
+              {keyword && count > 0 ? (
                 <Fragment>
                   <div className="col-6 col-md-3 mt-5 mb-5">
                     <div className="px-5">

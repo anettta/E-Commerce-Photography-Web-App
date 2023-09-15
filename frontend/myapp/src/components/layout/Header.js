@@ -25,11 +25,22 @@ const Header = () => {
 
   return (
     <Fragment>
-      <div className=" ">
-        <p className=" alert alert-success m-0 p-0 w-100 text-center">
-          <em>20% OF ALL SALES GO TO HELP UKRAINE</em>
+      <div>
+        <p className="mb-0 w-100 text-center">
+          <h6
+            style={{
+              backgroundColor: "#ffdd00",
+              fontWeight: "900",
+              color: " #0057b7",
+              margin: 0,
+              padding: 4,
+            }}
+          >
+            20% OF ALL SALES GO TO HELP UKRAINE
+          </h6>
         </p>
       </div>
+
       <>
         <style type="text/css">
           {`.customStyle{
@@ -47,7 +58,6 @@ margin-top:-25%;
       `}
         </style>
       </>
-
       <Navbar expand="lg" variant="light">
         <Navbar.Brand>
           <Link to="/">
