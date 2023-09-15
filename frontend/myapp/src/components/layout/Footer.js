@@ -30,7 +30,11 @@ import {
 export default function App() {
   const date = new Date();
   return (
-    <MDBFooter className="text-center" color="white" bgColor="dark">
+    <MDBFooter
+      className="text-center"
+      bgColor="dark"
+      style={{ color: "#f0faf7" }}
+    >
       <MDBContainer className="p-4">
         <section className="mb-4">
           <MDBBtn
@@ -67,7 +71,7 @@ export default function App() {
           </MDBBtn>
         </section>
 
-        <section className="">
+        {/* <section className="">
           <form action="">
             <MDBRow className="d-flex justify-content-center">
               <MDBCol size="auto">
@@ -92,31 +96,68 @@ export default function App() {
               </MDBCol>
             </MDBRow>
           </form>
-        </section>
+        </section> */}
 
-        <section className="mb-4">
+        <section className="mb-4" style={{ color: "#f0faf7" }}>
           <p>
             String Art | Black and White Photography | Handmade Greeting Cards |
             Wall Art
           </p>
         </section>
 
-        <section className="">
+        <section style={{ color: "#f0faf7" }}>
           <MDBRow>
             <MDBCol lg="3" md="6" className="mb-4 mb-md-0">
               <h5 className="text-uppercase">About</h5>
 
               <ul className="list-unstyled mb-2">
-                <li>
+                <p>
+                  <a
+                    data-toggle="collapse"
+                    href="#mission"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="mission"
+                    style={{ color: "#f0faf7", textDecoration: "none" }}
+                  >
+                    Our Mission
+                  </a>
+                </p>
+                <div className="collapse p-1" id="mission">
+                  <div className="card card-body" style={{ color: "#36454f" }}>
+                    <p>
+                      Photography as a chosen medium for creative expression.
+                    </p>
+                  </div>
+                </div>
+                {/* <li>
                   <a href="#!" className="text-white">
                     Our Mission
                   </a>
-                </li>
-                <li>
+                </li> */}
+
+                <p>
+                  <a
+                    data-toggle="collapse"
+                    href="#contact"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="contact"
+                    style={{ color: "#f0faf7", textDecoration: "none" }}
+                  >
+                    Contact
+                  </a>
+                </p>
+                <div className="collapse p-1" id="contact">
+                  <div className="card card-body" style={{ color: "#36454f" }}>
+                    <p>Email us at agcc@gmail.com</p>
+                  </div>
+                </div>
+                {/* <li>
                   <a href="#!" className="text-white">
                     Contact
                   </a>
-                </li>
+                </li> */}
                 <li>
                   <a href="#!" className="text-white">
                     Portfolio
