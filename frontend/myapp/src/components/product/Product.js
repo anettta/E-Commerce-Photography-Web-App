@@ -15,8 +15,12 @@ const Product = ({ product, col }) => {
 
         <div className="card-body d-flex flex-column">
           <h5
-            className="card-title text-center"
-            style={{ fontFamily: "avenir", fontWeight: "400" }}
+            className="card-title text-center "
+            style={{
+              fontFamily: "avenir",
+
+              fontWeight: "400",
+            }}
           >
             <Link to={`/product/${product._id}`}>{product.name}</Link>
           </h5>

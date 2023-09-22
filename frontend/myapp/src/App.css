@@ -146,10 +146,10 @@ nav {
 
 #login_btn,
 #view_btn {
-  background-color: #f0faf7;
-  color: #3bb293;
+  color: #f0faf7;
+  font-weight: 900;
   padding: 0.4rem 1.8rem;
-  font-family: calibri;
+  font-family: avenir;
 }
 
 #cart {
@@ -296,7 +296,12 @@ footer {
   color: #737373;
   font-size: 0.9rem;
 }
-
+.social-link-hover:hover {
+  color: #36454f;
+}
+.social-link-hover {
+  color: #f0faf7;
+}
 #stock_status {
   font-size: 1.1rem;
   font-weight: bold;
@@ -629,7 +634,32 @@ footer {
 .update-btn:hover {
   color: #f0faf7;
 }
+.animate-character {
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #0057b7 0%,
+    #0057b7 29%,
+    #ffdd00 67%,
+    #ffdd00 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 18px;
+}
 
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
 /* Pagination */
 
 .pagination {
