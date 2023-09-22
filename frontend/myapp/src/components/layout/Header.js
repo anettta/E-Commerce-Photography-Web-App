@@ -78,6 +78,21 @@ const Header = () => {
                 </ul>
                 <ul className="list-inline mb-0">
                   <li className="list-inline-item">
+                    <Link
+                      to="/cart"
+                      className="social-link-hover"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <i className="fas fa-shopping-cart me-2">
+                        <span id="cart_count">{cartItems.length}</span>
+                      </i>
+
+                      <span className="cart d-none d-md-inline-block">
+                        Cart
+                      </span>
+                    </Link>
+                  </li>
+                  <li className="list-inline-item">
                     {user ? (
                       <div className="ml-4 dropdown d-inline ">
                         <Link
@@ -196,14 +211,14 @@ const Header = () => {
               </div>
 
               <div className="container ">
-                <div className="row ">
+                {/* <div className="row ">
                   <div className="col-12 col-6">
                     <Link to="/cart" style={{ textDecoration: "none" }}>
                       <span id="cart">Cart</span>
                       <span id="cart_count">{cartItems.length}</span>
                     </Link>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="row ">
                   <div className="col-12 col-md-4">
