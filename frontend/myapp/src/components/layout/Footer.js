@@ -13,7 +13,7 @@ const Footer = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-lg-3 col-md-6">
+            <div className="col-lg-4 col-md-6">
               <h4 className="mb-3">Pages</h4>
               <ul className="list-unstyled">
                 <li>
@@ -44,7 +44,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="col-lg-3 col-md-6">
+            <div className="col-lg-4 col-md-6">
               <h4 className="mb-3">Top categories</h4>
               <h5>Photography</h5>
               <ul className="list-unstyled">
@@ -88,7 +88,7 @@ const Footer = () => {
               <hr className="d-block d-md-none" />
             </div> */}
 
-            <div className="col-lg-3 col-md-6">
+            <div className="col-lg-4 col-md-6">
               <h4 className="mb-3">Subscribe</h4>
               <p className="text-muted">
                 Get notified when new content is published

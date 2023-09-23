@@ -212,7 +212,7 @@ const Header = () => {
         style={{ backgroundColor: "#f0faf7" }}
       >
         <div className="container">
-          <Link href="/" className="navbar-brand home">
+          <Link to="/" className="navbar-brand home">
             <img
               src="./images/logo.png"
               width="73px"
@@ -262,7 +262,7 @@ const Header = () => {
           <div id="navigation" className="collapse navbar-collapse">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link href="/" className="nav-link">
+                <Link to="/" className="nav-link">
                   Home
                 </Link>
               </li>
