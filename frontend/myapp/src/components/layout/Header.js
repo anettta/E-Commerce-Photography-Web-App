@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
@@ -9,29 +9,7 @@ import Search from "./Search";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../actions/userActions";
 import { clearCart } from "../../actions/cartActions";
-import {
-  CButton,
-  CCloseButton,
-  CCollapse,
-  CContainer,
-  CDropdown,
-  CDropdownDivider,
-  CDropdownItem,
-  CDropdownMenu,
-  CDropdownToggle,
-  CForm,
-  CFormInput,
-  CNavItem,
-  CNavLink,
-  CNavbar,
-  CNavbarBrand,
-  CNavbarNav,
-  CNavbarToggler,
-  COffcanvas,
-  COffcanvasBody,
-  COffcanvasHeader,
-  COffcanvasTitle,
-} from "@coreui/react";
+import { CDropdownDivider } from "@coreui/react";
 
 const Header = () => {
   const alert = useAlert();
@@ -45,7 +23,6 @@ const Header = () => {
     dispatch(clearCart(cartItems));
     alert.success("Logged out successfully");
   };
-  const [visible, setVisible] = useState(false);
 
   return (
     <Fragment>

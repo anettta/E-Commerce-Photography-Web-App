@@ -1,246 +1,162 @@
-// import React, { Fragment } from "react";
-
-// const Footer = () => {
-//   const date = new Date();
-
-//   return (
-//     <Fragment>
-//       <footer className="py-1">
-//         <p className="text-center mt-1" style={{ color: "#36454f" }}>
-//           Anna Gapyuk Creative Studio &copy; {date.getFullYear()}
-//         </p>
-//       </footer>
-//     </Fragment>
-//   );
-// };
-
-// export default Footer;
-
 import React from "react";
-import {
-  MDBFooter,
-  MDBContainer,
-  MDBIcon,
-  MDBInput,
-  MDBCol,
-  MDBRow,
-  MDBBtn,
-} from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
-export default function App() {
+const Footer = () => {
   const date = new Date();
   return (
-    <MDBFooter
-      className="text-center"
-      bgColor="dark"
-      style={{ color: "#f0faf7" }}
-    >
-      <MDBContainer className="p-4">
-        <section className="mb-4">
-          <MDBBtn
-            outline
-            color="light"
-            floating
-            className="m-1"
-            href="#!"
-            role="button"
-          >
-            <MDBIcon fab icon="instagram" />
-          </MDBBtn>
-
-          <MDBBtn
-            outline
-            color="light"
-            floating
-            className="m-1"
-            href="#!"
-            role="button"
-          >
-            <MDBIcon fab icon="linkedin-in" />
-          </MDBBtn>
-
-          <MDBBtn
-            outline
-            color="light"
-            floating
-            className="m-1"
-            href="#!"
-            role="button"
-          >
-            <MDBIcon fab icon="github" />
-          </MDBBtn>
-        </section>
-
-        {/* <section className="">
-          <form action="">
-            <MDBRow className="d-flex justify-content-center">
-              <MDBCol size="auto">
-                <p className="pt-2">
-                  <strong>Sign up for our newsletter</strong>
-                </p>
-              </MDBCol>
-
-              <MDBCol md="5" start>
-                <MDBInput
-                  contrast
-                  type="email"
-                  label="Email address"
-                  className="mb-4"
-                />
-              </MDBCol>
-
-              <MDBCol size="auto">
-                <MDBBtn outline color="light" type="submit" className="mb-4">
-                  Subscribe
-                </MDBBtn>
-              </MDBCol>
-            </MDBRow>
-          </form>
-        </section> */}
-
-        <section className="mb-4" style={{ color: "#f0faf7" }}>
-          <p>
-            String Art | Black and White Photography | Handmade Greeting Cards |
-            Wall Art
-          </p>
-        </section>
-
-        <section style={{ color: "#f0faf7" }}>
-          <MDBRow>
-            <MDBCol lg="3" md="6" className="mb-4 mb-md-0">
-              <h5 className="text-uppercase">About</h5>
-
-              <ul className="list-unstyled mb-2">
-                <p>
-                  <a
-                    data-toggle="collapse"
-                    href="#mission"
-                    role="button"
-                    aria-expanded="false"
-                    aria-controls="mission"
-                    style={{ color: "#f0faf7", textDecoration: "none" }}
-                  >
-                    Our Mission
-                  </a>
-                </p>
-                <div className="collapse p-1" id="mission">
-                  <div className="card card-body" style={{ color: "#36454f" }}>
-                    <p>
-                      Photography as a chosen medium for creative expression.
-                    </p>
-                  </div>
-                </div>
-                {/* <li>
-                  <a href="#!" className="text-white">
-                    Our Mission
-                  </a>
-                </li> */}
-
-                <p>
-                  <a
-                    data-toggle="collapse"
-                    href="#contact"
-                    role="button"
-                    aria-expanded="false"
-                    aria-controls="contact"
-                    style={{ color: "#f0faf7", textDecoration: "none" }}
-                  >
-                    Contact
-                  </a>
-                </p>
-                <div className="collapse p-1" id="contact">
-                  <div className="card card-body" style={{ color: "#36454f" }}>
-                    <p>Email us at agcc@gmail.com</p>
-                  </div>
-                </div>
-                {/* <li>
-                  <a href="#!" className="text-white">
-                    Contact
-                  </a>
-                </li> */}
-                <li>
-                  <a href="#!" className="text-white">
-                    Portfolio
-                  </a>
-                </li>
-              </ul>
-            </MDBCol>
-
-            <MDBCol lg="3" md="6" className="mb-4 mb-md-0">
-              <h5 className="text-uppercase">String Art</h5>
-
-              <ul className="list-unstyled mb-0">
-                <li>
-                  <a href="#!" className="text-white">
-                    Greeting Cards
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-white">
-                    Wall Art
-                  </a>
-                </li>
-              </ul>
-            </MDBCol>
-
-            <MDBCol lg="3" md="6" className="mb-4 mb-md-0">
-              <h5 className="text-uppercase">Photography</h5>
-
-              <ul className="list-unstyled mb-0">
-                <li>
-                  <a href="#!" className="text-white">
-                    B&W
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-white">
-                    Color
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-white">
-                    Fine Art signed prints
-                  </a>
-                </li>
-              </ul>
-            </MDBCol>
-
-            <MDBCol lg="3" md="6" className="mb-4 mb-md-0">
-              <h5 className="text-uppercase">Stories</h5>
-
-              <ul className="list-unstyled mb-0">
-                <li>
-                  <a href="#!" className="text-white">
-                    Culebra, PR
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-white">
-                    New York, NY
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-white">
-                    Ukraine
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-white">
-                    Colorado
-                  </a>
-                </li>
-              </ul>
-            </MDBCol>
-          </MDBRow>
-        </section>
-      </MDBContainer>
-
+    <>
       <div
-        className="text-center p-3"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        id="footer"
+        style={{
+          fontFamily: "avenir",
+        }}
       >
-        Anna Gapyuk Creative Studio &copy; {date.getFullYear()}
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-3 col-md-6">
+              <h4 className="mb-3">Pages</h4>
+              <ul className="list-unstyled">
+                <li>
+                  <Link to="text.html">About</Link>
+                </li>
+                <li>
+                  <Link to="text.html">Terms and conditions</Link>
+                </li>
+                <li>
+                  <Link to="faq.html">FAQ</Link>
+                </li>
+                <li>
+                  <Link to="contact.html">Contact us</Link>
+                </li>
+              </ul>
+              <hr />
+              <h4 className="mb-3">User section</h4>
+              <ul className="list-unstyled">
+                <li>
+                  <Link
+                    to="/login"
+                    data-toggle="modal"
+                    data-target="#login-modal"
+                  >
+                    Login
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="col-lg-3 col-md-6">
+              <h4 className="mb-3">Top categories</h4>
+              <h5>Photography</h5>
+              <ul className="list-unstyled">
+                <li>
+                  <Link to="category.html">Contests</Link>
+                </li>
+                <li>
+                  <Link href="category.html">Inspiration</Link>
+                </li>
+                <li>
+                  <Link href="category.html">Techniques</Link>
+                </li>
+              </ul>
+              <h5>String Art</h5>
+              <ul className="list-unstyled">
+                <li>
+                  <Link href="category.html">Wall Art</Link>
+                </li>
+                <li>
+                  <Link href="category.html">Greeting Cards</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* <div className="col-lg-3 col-md-6">
+              <h4 className="mb-3">Where to find us</h4>
+              <p>
+                <strong>Obaju Ltd.</strong>
+                <br />
+                13/25 New Avenue
+                <br />
+                New Heaven
+                <br />
+                45Y 73J
+                <br />
+                England
+                <br />
+                <strong>Great Britain</strong>
+              </p>
+              <a href="contact.html">Go to contact page</a>
+              <hr className="d-block d-md-none" />
+            </div> */}
+
+            <div className="col-lg-3 col-md-6">
+              <h4 className="mb-3">Subscribe</h4>
+              <p className="text-muted">
+                Get notified when new content is published
+              </p>
+              <form>
+                <div className="input-group">
+                  <input type="text" className="form-control" />
+                  <span className="input-group-append">
+                    <button
+                      type="button"
+                      className="btn "
+                      style={{
+                        backgroundColor: "#3bb293",
+                        color: "#f0faf7",
+                        fontFamily: "avenir",
+                        fontWeight: "700",
+                      }}
+                    >
+                      Subscribe!
+                    </button>
+                  </span>
+                </div>
+              </form>
+              <hr />
+              <h4 className="mb-3">Stay in touch</h4>
+              <p className="social">
+                <Link
+                  to="https://github.com/anettta"
+                  className="github external"
+                >
+                  <i className="fa fa-github"></i>
+                </Link>
+                <Link
+                  to="https://www.linkedin.com/in/annagapyuk/"
+                  className="linkedin external"
+                >
+                  <i className="fa fa-linkedin"></i>
+                </Link>
+
+                {/* <a href="#" className="instagram external">
+                  <i className="fa fa-instagram"></i>
+                </a> */}
+
+                <Link
+                  to="mailto: annagapyuk@gmail.com"
+                  className="email external"
+                >
+                  <i className="fa fa-envelope"></i>
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </MDBFooter>
+
+      <div id="copyright">
+        <div className="container ">
+          <div className="row">
+            <div className="col-lg-6 mb-2 mb-lg-0 ">
+              <p className="text-center">
+                Anna Gapyuk Creative Studio &copy; {date.getFullYear()}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
-}
+};
+
+export default Footer;

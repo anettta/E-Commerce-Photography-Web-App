@@ -363,11 +363,104 @@ body {
 }
 
 /* Footer */
-footer {
+/* footer {
   margin-top: 8rem;
   color: #3bb293;
   bottom: 0;
   width: 100%;
+} */
+/*
+*
+* ======================================================================
+* FOOTER
+* ======================================================================
+*
+*/
+#footer {
+  background: #f0faf7;
+  padding: 100px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#footer ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+#footer ul a {
+  color: #36454f;
+  text-decoration: none;
+}
+
+#footer .social {
+  text-align: left;
+}
+
+#footer .social a {
+  margin: 0 10px 0 0;
+  color: #fff;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  line-height: 26px;
+  font-size: 15px;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  vertical-align: bottom;
+  background-color: #555;
+}
+
+#footer .social a i {
+  vertical-align: bottom;
+  line-height: 30px;
+}
+
+#footer .social a.facebook:hover {
+  background-color: #4460ae;
+}
+
+#footer .social a.gplus:hover {
+  background-color: #c21f25;
+}
+
+#footer .social a.twitter:hover {
+  background-color: #3cf;
+}
+
+#footer .social a.instagram:hover {
+  background-color: #cd4378;
+}
+
+#footer .social a.email:hover {
+  background-color: #4a7f45;
+}
+
+#footer .social a.github:hover {
+  background-color: #171515;
+}
+
+#footer .social a.linkedin:hover {
+  background-color: #0072b1;
+}
+
+/*
+*
+* ======================================================================
+* COPYRIGHTS
+* ======================================================================
+*
+*/
+#copyright {
+  background: #36454f;
+  color: #ccc;
+  padding: 20px 0;
+  font-size: 0.738rem;
+}
+
+#copyright p {
+  margin: 0;
 }
 
 /* Ratings */
