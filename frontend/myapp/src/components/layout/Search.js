@@ -25,7 +25,7 @@ const Search = () => {
           type="text"
           id="search_field"
           className="form-control"
-          placeholder="find artwork you'll love"
+          placeholder="search art"
           onChange={(e) => setKeyword(e.target.value)}
         />
         <div className="input-group-append">
