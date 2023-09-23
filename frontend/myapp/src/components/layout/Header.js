@@ -80,7 +80,7 @@ const Header = () => {
               {/* <p className="mb-0 text-xs">Contact me at annagapyuk@gmail.com</p> */}
             </div>
             <div className="col-12 col-md-6">
-              <div className="d-flex justify-content-md-end justify-content-between">
+              <div className="d-flex justify-content-md-end justify-content-center">
                 <ul className="list-inline d-block d-md-none mb-0">
                   <li className="list-inline-item">
                     {/* <Link className="text-xs social-link-hover" to="#">
@@ -97,9 +97,9 @@ const Header = () => {
                     </Link>
                   </li>
                 </ul>
-                <div className="col-4 col-md-6">
+                <div className="col-8 col-md-8">
                   <ul className="list-inline mb-0">
-                    <li className="list-inline-item">
+                    <li className="justify-content-center justify-content-center">
                       <Search />
                     </li>
                   </ul>

@@ -135,17 +135,14 @@ nav {
 }
 
 /* styling search bar */
-
-#search_btn {
-  background-color: #14927d;
-  color: #f0faf7;
-}
-
 .input-group {
   width: 90%;
   margin-right: 35%;
 }
-
+#search_btn {
+  background-color: #14927d;
+  color: #f0faf7;
+}
 #search_field {
   height: 2.4rem;
   padding: 1rem;
