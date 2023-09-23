@@ -65,7 +65,7 @@ const Header = () => {
         <div className="container px-lg-0 text-light py-1">
           <div className="row d-flex align-items-center">
             <div className="col-md-6 d-md-block d-none">
-              <p className="mb-0 text-xs greenColor ml-1">
+              {/* <p className="mb-0 text-xs greenColor ml-1">
                 <Link
                   to="/"
                   style={{
@@ -76,24 +76,38 @@ const Header = () => {
                 >
                   Anna Gapyuk Creative Studio
                 </Link>
+              </p> */}
+              <p
+                className="mb-0 text-xs"
+                style={{
+                  fontFamily: "avenir",
+                  fontWeight: "700",
+                  textDecoration: "none",
+                }}
+              >
+                Contact me at
+                <Link
+                  className="text-xs social-link-hover "
+                  to="mailto: annagapyuk@gmail.com"
+                  style={{
+                    textDecoration: "none",
+                    marginLeft: "4px",
+                    color: "#14927d",
+                  }}
+                >
+                  annagapyuk@gmail.com
+                </Link>
               </p>
-              {/* <p className="mb-0 text-xs">Contact me at annagapyuk@gmail.com</p> */}
             </div>
             <div className="col-12 col-md-6">
               <div className="d-flex justify-content-md-end justify-content-center">
                 <ul className="list-inline d-block d-md-none mb-0">
                   <li className="list-inline-item">
-                    {/* <Link className="text-xs social-link-hover" to="#">
+                    <Link
+                      className="text-xs social-link-hover"
+                      to="mailto: annagapyuk@gmail.com"
+                    >
                       <i className="fa fa-envelope"></i>
-                    </Link> */}
-                    <Link to="/">
-                      <img
-                        className="img-fluid mb-0"
-                        src="/images/logo.png"
-                        alt=""
-                        width="32"
-                        height="34"
-                      />
                     </Link>
                   </li>
                 </ul>
@@ -215,6 +229,229 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      <nav
+        className="navbar navbar-expand-lg "
+        style={{ backgroundColor: "#f0faf7" }}
+      >
+        <div className="container">
+          <Link href="/" className="navbar-brand home">
+            <img
+              src="./images/logo.png"
+              width="73px"
+              height="auto"
+              alt="logo"
+              className="d-none d-md-inline-block"
+            />
+            <img
+              src="./images/logo.png"
+              width="53px"
+              height="auto"
+              alt="logo"
+              className="d-inline-block d-md-none"
+            />
+            <span className="sr-only">go to homepage</span>
+          </Link>
+          <div className="navbar-buttons">
+            <button
+              type="button"
+              data-toggle="collapse"
+              data-target="#navigation"
+              className="btn btn-outline-secondary navbar-toggler"
+            >
+              <span className="sr-only">Toggle navigation</span>
+              <i
+                className="fa fa-align-justify social-link-hover"
+                style={{ color: "#14927d" }}
+              ></i>
+            </button>
+            {/* <button
+              type="button"
+              data-toggle="collapse"
+              data-target="#search"
+              className="btn btn-outline-secondary navbar-toggler"
+            >
+              <span className="sr-only">Toggle search</span>
+              <i className="fa fa-search"></i>
+            </button> */}
+            {/* <a
+              href="basket.html"
+              className="btn btn-outline-secondary navbar-toggler"
+            >
+              <i className="fa fa-shopping-cart"></i>
+            </a> */}
+          </div>
+
+          <div id="navigation" className="collapse navbar-collapse">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <Link href="/" className="nav-link">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item dropdown menu-large">
+                <Link
+                  href="/"
+                  data-toggle="dropdown"
+                  data-hover="dropdown"
+                  data-delay="200"
+                  className="dropdown-toggle nav-link"
+                >
+                  Photography<b className="caret"></b>
+                </Link>
+                <ul className="dropdown-menu megamenu">
+                  <li>
+                    <div className="row">
+                      <div className="col-md-6 col-lg-3">
+                        <h5>Black and White</h5>
+                        <ul className="list-unstyled mb-3">
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Mountains
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Abstract
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Ocean
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="/" className="nav-link">
+                              Documentary
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="col-md-6 col-lg-3">
+                        <h5>Resources</h5>
+                        <ul className="list-unstyled mb-3">
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Techniques
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Contests
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Inspiration
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Creative exercises
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="col-md-6 col-lg-3">
+                        <h5>Services</h5>
+                        <ul className="list-unstyled mb-3">
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Portrait
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Product
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Your request
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="col-md-6 col-lg-3">
+                        <h5>Stories</h5>
+                        <ul className="list-unstyled mb-3">
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              NYC
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Culebra
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Ukraine
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown menu-large">
+                <Link
+                  href="/"
+                  data-toggle="dropdown"
+                  data-hover="dropdown"
+                  data-delay="200"
+                  className="dropdown-toggle nav-link"
+                >
+                  String Art<b className="caret"></b>
+                </Link>
+                <ul className="dropdown-menu megamenu">
+                  <li>
+                    <div className="row">
+                      <div className="col-md-6 col-lg-6">
+                        <h5>My works</h5>
+                        <ul className="list-unstyled mb-3">
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Wall Art
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Greeting Cards
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="col-md-6 col-lg-6">
+                        <h5>Resources</h5>
+                        <ul className="list-unstyled mb-3">
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Techniques
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Inspiration
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="category.html" className="nav-link">
+                              Creative exercises
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </Fragment>
   );
 };
