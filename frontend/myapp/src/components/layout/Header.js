@@ -77,11 +77,11 @@ const Header = () => {
               </p>
             </div>
             <div className="col-12 col-md-6">
-              <div className="d-flex justify-content-md-end justify-content-center">
+              <div className="d-flex justify-content-center justify-content-center align-items-center">
                 <ul className="list-inline d-block d-md-none mb-0">
-                  <li className="list-inline-item">
+                  <li className="list-inline-item ">
                     <Link
-                      className="text-xs social-link-hover"
+                      className="  social-link-hover"
                       to="mailto: annagapyuk@gmail.com"
                     >
                       <i className="fa fa-envelope"></i>
@@ -95,85 +95,88 @@ const Header = () => {
                     </li>
                   </ul>
                 </div>
-                <ul className="list-inline mb-0 ms-lg-4">
-                  <li className="list-inline-item ">
-                    {user ? (
-                      <div className="ml-4 dropdown d-inline ">
-                        <Link
-                          to="#!"
-                          className=" dropdown-toggle  text-xs fw-bold text-reset"
-                          type="button"
-                          id="dropDownMenuButton"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <figure className="avatar avatar-nav">
-                            <img
-                              src={user.avatar && user.avatar.url}
-                              alt={user && user.name}
-                              className="rounded-circle"
-                            />
-                          </figure>
-                          <span className="d-none d-md-inline-block ">
-                            {user && user.name}
-                          </span>
-                        </Link>
-
-                        <div
-                          className="dropdown-menu"
-                          aria-labelledby="dropDownMenuButton"
-                        >
-                          {user && user.role === "admin" && (
-                            <Link className="dropdown-item" to="/dashboard">
-                              Dashboard
-                            </Link>
-                          )}
-                          <CDropdownDivider />
-                          <Link className="dropdown-item" to="/orders/me">
-                            Orders
-                          </Link>
-                          <Link className="dropdown-item" to="/me">
-                            Profile
-                          </Link>
+                <div className="d-flex justify-content-md-start justify-content-center">
+                  <ul className="list-inline mb-0 ">
+                    <li className="list-inline-item ">
+                      {user ? (
+                        <div className="ml-4 dropdown d-inline ">
                           <Link
-                            className="dropdown-item text-danger"
-                            to="/"
-                            onClick={logoutHandler}
+                            to="#!"
+                            className=" dropdown-toggle  text-xs fw-bold text-reset"
+                            type="button"
+                            id="dropDownMenuButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
                           >
-                            Logout
+                            <figure className="avatar avatar-nav">
+                              <img
+                                src={user.avatar && user.avatar.url}
+                                alt={user && user.name}
+                                className="rounded-circle"
+                              />
+                            </figure>
+                            <span className="d-none d-md-inline-block ">
+                              {user && user.name}
+                            </span>
                           </Link>
-                        </div>
-                      </div>
-                    ) : (
-                      !loading && (
-                        <Link
-                          to="/login"
-                          className="text-xs fw-bold text-reset "
-                          id="login_btn"
-                        >
-                          <i class="fas fa-user me-2 "></i>
-                          <span class="d-none d-md-inline-block  ">Login</span>
-                        </Link>
-                      )
-                    )}
-                  </li>
-                  <li className="list-inline-item ">
-                    <Link
-                      to="/cart"
-                      className="social-link-hover text-xs  fw-bold text-reset"
-                      style={{ textDecoration: "none" }}
-                    >
-                      <i className="fas fa-shopping-cart me-2">
-                        <span id="cart_count">{cartItems.length}</span>
-                      </i>
 
-                      {/* <span className="cart d-none d-md-inline-block">
+                          <div
+                            className="dropdown-menu"
+                            aria-labelledby="dropDownMenuButton"
+                          >
+                            {user && user.role === "admin" && (
+                              <Link className="dropdown-item" to="/dashboard">
+                                Dashboard
+                              </Link>
+                            )}
+                            <CDropdownDivider />
+                            <Link className="dropdown-item" to="/orders/me">
+                              Orders
+                            </Link>
+                            <Link className="dropdown-item" to="/me">
+                              Profile
+                            </Link>
+                            <Link
+                              className="dropdown-item text-danger"
+                              to="/"
+                              onClick={logoutHandler}
+                            >
+                              Logout
+                            </Link>
+                          </div>
+                        </div>
+                      ) : (
+                        !loading && (
+                          <Link
+                            to="/login"
+                            className="text-xs fw-bold text-reset "
+                            id="login_btn"
+                          >
+                            <i class="fas fa-user me-2 "></i>
+                            <span class="d-none d-md-inline-block  ">
+                              Login
+                            </span>
+                          </Link>
+                        )
+                      )}
+                    </li>
+                    <li className="list-inline-item ">
+                      <Link
+                        to="/cart"
+                        className="social-link-hover text-xs  fw-bold "
+                        style={{ textDecoration: "none" }}
+                      >
+                        <i className="fas fa-shopping-cart ">
+                          <span id="cart_count">{cartItems.length}</span>
+                        </i>
+
+                        {/* <span className="cart d-none d-md-inline-block">
                         Cart
                       </span> */}
-                    </Link>
-                  </li>
-                  {/* <li className="list-inline-item  m-1">
+                      </Link>
+                    </li>
+                    {/* <li className="list-inline-item  m-1">
                     <Link
                       className="text-xs social-link-hover"
                       to="https://github.com/anettta"
@@ -182,7 +185,7 @@ const Header = () => {
                       <i className="fab fa-github"></i>
                     </Link>
                   </li> */}
-                  {/* <li class="list-inline-item text-gray-600 m-1">
+                    {/* <li class="list-inline-item text-gray-600 m-1">
                     <Link
                       class="text-xs social-link-hover"
                       to="#"
@@ -191,7 +194,7 @@ const Header = () => {
                       <i class="fab fa-instagram"></i>
                     </Link>
                   </li> */}
-                  {/* <li className="list-inline-item text-gray-600 m-1">
+                    {/* <li className="list-inline-item text-gray-600 m-1">
                     <Link
                       className="text-xs social-link-hover"
                       to="https://www.linkedin.com/in/annagapyuk/"
@@ -200,7 +203,8 @@ const Header = () => {
                       <i className="fab fa-linkedin-in"></i>
                     </Link>
                   </li> */}
-                </ul>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

@@ -9,7 +9,7 @@ import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import Content from "./layout/Content";
+// import Content from "./layout/Content";
 // import CarouselStories from "./layout/CarouselStories";
 
 const { createSliderWithTooltip } = Slider;
@@ -77,6 +77,7 @@ const Home = () => {
               <p style={{ color: "#ce6c86" }}>no artworks found</p>
             )}
           </h3>
+
           <section id="products" className="container mt-5">
             <div className="row">
               {keyword && count > 0 ? (

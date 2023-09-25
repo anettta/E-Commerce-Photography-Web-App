@@ -127,14 +127,14 @@ const ProductDetails = () => {
       ) : (
         <Fragment>
           <MetaData title={product.name} />
-          <div className="row f-flex justify-content-around">
-            <div className="col-12 col-lg-5" id="product_image">
+          <div className="row d-flex justify-content-around ">
+            <div className="col-12 col-lg-5 mt-5" id="product_image">
               <Carousel pause="hover">
                 {product.images &&
                   product.images.map((image) => (
                     <Carousel.Item key={image.public_id}>
                       <img
-                        className="d-block w-100 img-fluid"
+                        className="d-block w-100 img-fluid "
                         src={image.url}
                         alt={product.title}
                       />
@@ -300,11 +300,11 @@ const ProductDetails = () => {
               </div>
             </div>
             <Fragment>
-              <div className="col-12 col-md-6 text-center">
+              <div className="col-12 col-md-6 text-center ">
                 {filteredProducts.length > 0 && <h1>Related Products</h1>}
               </div>
 
-              <div className="row ">
+              <div className="row">
                 {filteredProducts.map((product) => (
                   <Product key={product._id} product={product} col={4} />
                 ))}

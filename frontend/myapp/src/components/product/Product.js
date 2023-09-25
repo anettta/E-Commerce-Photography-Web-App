@@ -11,7 +11,11 @@ const Product = ({ product, col }) => {
       </div> */}
         <div className="">
           <Link to={`/product/${product._id}`}>
-            <img className="img-fluid" alt="img" src={productMainImage} />
+            <img
+              className="img-fluid cool-frame"
+              alt="img"
+              src={productMainImage}
+            />
           </Link>
 
           <div className="card-body d-flex flex-column">
@@ -19,8 +23,8 @@ const Product = ({ product, col }) => {
               className="card-title text-center "
               style={{
                 fontFamily: "avenir",
-
-                fontWeight: "400",
+                margin: "10px",
+                fontWeight: "500",
               }}
             >
               <Link to={`/product/${product._id}`}>{product.name}</Link>

@@ -11,65 +11,6 @@ body {
   /* background-color: #ffffff; */
 }
 
-#header-row {
-  width: 100%;
-  height: 400px;
-  background-image: url(../public/images/4.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-#cat {
-  border: 2px solid #36454f;
-  padding: 7px;
-  margin: 0px;
-  opacity: 0.5;
-  border-radius: 0%;
-}
-
-.productsHomeScroll {
-  display: flex;
-  overflow-x: scroll;
-  width: 100%;
-}
-
-/* #grad {
-  background-image: linear-gradient(#0057b7, #ffdd00);
-  color: #f0faf7;
-  margin: 0;
-  padding: 0.5rem;
-} */
-
-.product-device {
-  position: absolute;
-  right: 10%;
-  bottom: -30%;
-  width: 300px;
-  height: 540px;
-  background-image: image("/frontend/myapp/images/3.jpeg");
-  border-radius: 21px;
-  -webkit-transform: rotate(30deg);
-  transform: rotate(30deg);
-}
-
-.product-device::before {
-  position: absolute;
-  top: 10%;
-  right: 10px;
-  bottom: 10%;
-  left: 10px;
-  content: "";
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-}
-
-.product-device-2 {
-  top: -25%;
-  right: auto;
-  bottom: 0;
-  left: 5%;
-  background-color: #e5e5e5;
-}
-
 /*
  * Extra utilities
  */
@@ -324,8 +265,18 @@ body {
   height: 100%;
 }
 
+.cool-frame {
+  --b: 10px; /* control the size */
+  padding: var(--b);
+  border: calc(2 * var(--b)) solid #0000;
+  outline: 1px solid #36454f;
+  outline-offset: calc(-1 * var(--b));
+  background: conic-gradient(from 90deg at 1px 1px, #0000 90deg, #475b69 0);
+}
+
 .card-title a {
   color: rgb(109, 109, 109);
+  text-decoration: none;
 }
 
 .card-title a:hover {

@@ -16,7 +16,7 @@ const Register = () => {
   const { name, email, password } = user;
   const [avatar, setAvatar] = useState("");
   const [avatarPreview, setAvatarPreview] = useState(
-    "/images/default_image.png"
+    "https://res.cloudinary.com/ducc0wskb/image/upload/v1695669202/default_image_bq0yu0.png"
   );
 
   const alert = useAlert();
