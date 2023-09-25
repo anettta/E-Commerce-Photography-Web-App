@@ -66,9 +66,9 @@ const Home = () => {
         <div>
           <MetaData title={"Anna Gapyuk Creative Studio"} />
 
-          {!loading &&
+          {/* {!loading &&
             !keyword &&
-            (!isAuthenticated || user.role !== "admin") && <Content />}
+            (!isAuthenticated || user.role !== "admin") && <Content />} */}
 
           <h3 id="products_heading" className="text-center ">
             {count > 0 ? (

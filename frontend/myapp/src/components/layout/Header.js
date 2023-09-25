@@ -214,14 +214,14 @@ const Header = () => {
         <div className="container">
           <Link to="/" className="navbar-brand home">
             <img
-              src="./images/logo.png"
+              src="https://res.cloudinary.com/ducc0wskb/image/upload/v1695668560/Anna_Gapyuk_1_copy_9_bhk8ly.png"
               width="73px"
               height="auto"
               alt="logo"
               className="d-none d-md-inline-block"
             />
             <img
-              src="./images/logo.png"
+              src="https://res.cloudinary.com/ducc0wskb/image/upload/v1695668560/Anna_Gapyuk_1_copy_9_bhk8ly.png"
               width="53px"
               height="auto"
               alt="logo"
