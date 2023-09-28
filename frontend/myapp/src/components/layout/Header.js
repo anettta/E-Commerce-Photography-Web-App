@@ -283,7 +283,7 @@ const Header = () => {
                 <ul className="dropdown-menu megamenu">
                   <li>
                     <div className="row">
-                      <div className="col-md-6 col-lg-3">
+                      {/* <div className="col-md-6 col-lg-3">
                         <h5>Black and White</h5>
                         <ul className="list-unstyled mb-3">
                           <li className="nav-item">
@@ -307,43 +307,38 @@ const Header = () => {
                             </Link>
                           </li>
                         </ul>
-                      </div>
-                      <div className="col-md-6 col-lg-3">
-                        <h5>Resources</h5>
+                      </div> */}
+                      <div className="col-md-6 col-lg-4">
+                        <h5>Stories</h5>
                         <ul className="list-unstyled mb-3">
                           <li className="nav-item">
                             <Link to="category.html" className="nav-link">
-                              Techniques
+                              New Palz, NY
                             </Link>
                           </li>
                           <li className="nav-item">
                             <Link to="category.html" className="nav-link">
-                              Contests
+                              Walk along Tamarindo Beach
                             </Link>
                           </li>
                           <li className="nav-item">
                             <Link to="category.html" className="nav-link">
-                              Inspiration
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link to="/creativeexercises" className="nav-link">
-                              Creative exercises
+                              NYBG in four seasons
                             </Link>
                           </li>
                         </ul>
                       </div>
-                      <div className="col-md-6 col-lg-3">
+                      <div className="col-md-6 col-lg-4">
                         <h5>Services</h5>
                         <ul className="list-unstyled mb-3">
                           <li className="nav-item">
                             <Link to="category.html" className="nav-link">
-                              Portrait
+                              Portrait session
                             </Link>
                           </li>
                           <li className="nav-item">
                             <Link to="category.html" className="nav-link">
-                              Product
+                              Product photography
                             </Link>
                           </li>
                           <li className="nav-item">
@@ -353,22 +348,27 @@ const Header = () => {
                           </li>
                         </ul>
                       </div>
-                      <div className="col-md-6 col-lg-3">
-                        <h5>Stories</h5>
+                      <div className="col-md-6 col-lg-4">
+                        <h5>Resources</h5>
                         <ul className="list-unstyled mb-3">
                           <li className="nav-item">
                             <Link to="category.html" className="nav-link">
-                              NYC
+                              List of nature places in NY for photography
                             </Link>
                           </li>
                           <li className="nav-item">
                             <Link to="category.html" className="nav-link">
-                              Culebra
+                              List of contests
                             </Link>
                           </li>
                           <li className="nav-item">
                             <Link to="category.html" className="nav-link">
-                              Ukraine
+                              Inspiration board
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="/creativeexercises" className="nav-link">
+                              Exercise creatively with me
                             </Link>
                           </li>
                         </ul>
@@ -390,7 +390,7 @@ const Header = () => {
                 <ul className="dropdown-menu megamenu">
                   <li>
                     <div className="row">
-                      <div className="col-md-6 col-lg-6">
+                      <div className="col-md-6 col-md-12">
                         <h5>My works</h5>
                         <ul className="list-unstyled mb-3">
                           <li className="nav-item">
@@ -401,26 +401,6 @@ const Header = () => {
                           <li className="nav-item">
                             <Link to="category.html" className="nav-link">
                               Greeting Cards
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                      <div className="col-md-6 col-lg-6">
-                        <h5>Resources</h5>
-                        <ul className="list-unstyled mb-3">
-                          <li className="nav-item">
-                            <Link to="category.html" className="nav-link">
-                              Techniques
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link to="category.html" className="nav-link">
-                              Inspiration
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link to="category.html" className="nav-link">
-                              Creative exercises
                             </Link>
                           </li>
                         </ul>
