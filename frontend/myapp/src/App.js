@@ -44,6 +44,7 @@ import UpdateProduct from "./components/admin/UpdateProduct";
 import UsersList from "./components/admin/UsersList";
 import UpdateUser from "./components/admin/UpdateUser";
 import ProductReviews from "./components/admin/ProductReviews";
+import CreativeExercises from "./pages/CreativeExercises";
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
@@ -76,6 +77,11 @@ function App() {
           <div className="container container-fluid">
             <Routes>
               <Route path="/" element={<Home />} exact />
+              <Route
+                path="/creativeexercises"
+                element={<CreativeExercises />}
+                exact
+              />
               <Route path="/cart" element={<Cart />} exact />
               <Route path="/search/:keyword" element={<Home />} />
               <Route path="/product/:id" element={<ProductDetails />} />

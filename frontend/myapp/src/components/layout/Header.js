@@ -88,14 +88,14 @@ const Header = () => {
                     </Link>
                   </li>
                 </ul>
-                <div className="col-8 col-md-8">
+                <div className="col-6 col-6">
                   <ul className="list-inline mb-0">
                     <li className="justify-content-center justify-content-center">
                       <Search />
                     </li>
                   </ul>
                 </div>
-                <div className="d-flex justify-content-md-start justify-content-center">
+                <div className="d-flex align-items-center">
                   <ul className="list-inline mb-0 ">
                     <li className="list-inline-item ">
                       {user ? (
@@ -327,7 +327,7 @@ const Header = () => {
                             </Link>
                           </li>
                           <li className="nav-item">
-                            <Link to="category.html" className="nav-link">
+                            <Link to="/creativeexercises" className="nav-link">
                               Creative exercises
                             </Link>
                           </li>

@@ -407,7 +407,11 @@ body {
   background: #36454f;
   color: #ccc;
   padding: 20px 0;
-  font-size: 0.738rem;
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #copyright p {

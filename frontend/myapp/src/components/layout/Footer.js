@@ -146,10 +146,24 @@ const Footer = () => {
 
       <div id="copyright">
         <div className="container ">
-          <div className="row">
-            <div className="col-lg-6 mb-2 mb-lg-0 ">
-              <p className="text-center">
-                Anna Gapyuk Creative Studio &copy; {date.getFullYear()}
+          <div className="row ">
+            <div className="col-12 col-12 ">
+              <p className="text-left" style={{ color: "#14927d" }}>
+                &copy; {date.getFullYear()}
+                <span
+                  className="text-right"
+                  style={{
+                    float: "right",
+                    textDecoration: "none",
+                  }}
+                >
+                  <Link
+                    to="https://github.com/anettta"
+                    style={{ textDecoration: "none", color: "#14927d" }}
+                  >
+                    by Anna Gapyuk
+                  </Link>
+                </span>
               </p>
             </div>
           </div>

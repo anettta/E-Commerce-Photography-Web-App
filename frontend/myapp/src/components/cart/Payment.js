@@ -117,7 +117,7 @@ const Payment = () => {
       <MetaData title={"Payment"} />
       <CheckoutSteps shipping confirmOrder payment />
       <div class="row wrapper">
-        <div className="col-10 col-lg-5">
+        <div className="col-12 col-lg-5">
           <form className="shadow-lg" onSubmit={submitHandler}>
             <h1 className="mb-4">Card Info</h1>
             <div className="form-group">
