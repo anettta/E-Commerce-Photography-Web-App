@@ -202,7 +202,7 @@ body {
 .input-group {
   width: 90%;
   margin-right: 35%;
-  color: #f0faf7;
+  color: #14927d;
 }
 #search_btn {
   background-color: #14927d;
@@ -211,7 +211,7 @@ body {
 #search_field {
   height: 2.4rem;
   padding: 1rem;
-  color: #f0faf7;
+  color: #14927d;
 }
 
 #login_btn,

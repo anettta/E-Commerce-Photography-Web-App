@@ -26,6 +26,7 @@
     "react-alert-template-basic": "^1.0.2",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18",
+    "react-draft-wysiwyg": "^1.15.0",
     "react-foundation": "^0.9.7",
     "react-helmet": "^6.1.0",
     "react-js-pagination": "^3.0.2",

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Search from "./Search";
 
 const Footer = () => {
   const date = new Date();
@@ -13,87 +14,56 @@ const Footer = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-lg-4 col-md-6">
-              <h4 className="mb-3">Pages</h4>
+            <div className="col-lg-3 col-md-6">
+              <h4 className="mb-3">About</h4>
               <ul className="list-unstyled">
                 <li>
-                  <Link to="text.html">About</Link>
+                  <Link to="text.html">Sustainable practice</Link>
                 </li>
-                <li>
-                  <Link to="text.html">Terms and conditions</Link>
-                </li>
+
                 <li>
                   <Link to="faq.html">FAQ</Link>
                 </li>
                 <li>
-                  <Link to="contact.html">Contact us</Link>
-                </li>
-              </ul>
-              <hr />
-              <h4 className="mb-3">User section</h4>
-              <ul className="list-unstyled">
-                <li>
-                  <Link
-                    to="/login"
-                    data-toggle="modal"
-                    data-target="#login-modal"
-                  >
-                    Login
-                  </Link>
+                  <Link to="/login">Sign in</Link>
                 </li>
               </ul>
             </div>
 
-            <div className="col-lg-4 col-md-6">
-              <h4 className="mb-3">Top categories</h4>
-              <h5>Photography</h5>
+            <div className="col-lg-3 col-md-6">
+              {/* <h4 className="mb-3">Top categories</h4> */}
+              <h4>Photography resources</h4>
               <ul className="list-unstyled">
                 <li>
-                  <Link to="category.html">Contests</Link>
+                  <Link to="category.html">List of contests</Link>
                 </li>
                 <li>
-                  <Link href="category.html">Inspiration</Link>
+                  <Link href="category.html">Inspiration Board</Link>
                 </li>
                 <li>
-                  <Link href="category.html">Techniques</Link>
-                </li>
-              </ul>
-              <h5>String Art</h5>
-              <ul className="list-unstyled">
-                <li>
-                  <Link href="category.html">Wall Art</Link>
-                </li>
-                <li>
-                  <Link href="category.html">Greeting Cards</Link>
+                  <Link href="category.html">Exercise creatively with me</Link>
                 </li>
               </ul>
             </div>
 
-            {/* <div className="col-lg-3 col-md-6">
-              <h4 className="mb-3">Where to find us</h4>
-              <p>
-                <strong>Obaju Ltd.</strong>
-                <br />
-                13/25 New Avenue
-                <br />
-                New Heaven
-                <br />
-                45Y 73J
-                <br />
-                England
-                <br />
-                <strong>Great Britain</strong>
+            <div className="col-lg-3 col-md-6">
+              <h4 className="mb-3">Search</h4>
+              <p className="text-muted">
+                Find unique artworks that you will love
               </p>
-              <a href="contact.html">Go to contact page</a>
-              <hr className="d-block d-md-none" />
-            </div> */}
+              <ul className="list-unstyled">
+                <li className="justify-content-center justify-content-center">
+                  <Search />
+                </li>
+              </ul>
+            </div>
 
-            <div className="col-lg-4 col-md-6">
-              <h4 className="mb-3">Subscribe</h4>
+            <div className="col-lg-3 col-md-6">
+              {/* <h4 className="mb-3">Subscribe</h4>
               <p className="text-muted">
                 Get notified when new content is published
-              </p>
-              <form>
+              </p> */}
+              {/* <form>
                 <div className="input-group">
                   <input type="text" className="form-control" />
                   <span className="input-group-append">
@@ -111,9 +81,24 @@ const Footer = () => {
                     </button>
                   </span>
                 </div>
-              </form>
-              <hr />
-              <h4 className="mb-3">Stay in touch</h4>
+              </form> */}
+              {/* <hr /> */}
+
+              <h4 className="mb-3">Contact</h4>
+              <p className="text-muted">
+                Questions or feedback? <br /> I'd love to hear from you <br />
+                <Link
+                  to="mailto: annagapyuk@gmail.com"
+                  className="email external"
+                  style={{
+                    textDecoration: "none",
+                    marginLeft: "4px",
+                    color: "#14927d",
+                  }}
+                >
+                  annagapyuk@gmail.com
+                </Link>
+              </p>
               <p className="social">
                 <Link
                   to="https://github.com/anettta"
@@ -148,22 +133,37 @@ const Footer = () => {
         <div className="container ">
           <div className="row ">
             <div className="col-12 col-12 ">
-              <p className="text-left" style={{ color: "#14927d" }}>
+              <Link to="/" className="navbar-brand home mb-2">
+                <img
+                  src="https://res.cloudinary.com/ducc0wskb/image/upload/v1695668560/Anna_Gapyuk_1_copy_9_bhk8ly.png"
+                  width="73px"
+                  height="auto"
+                  alt="logo"
+                  className="d-none d-md-inline-block"
+                />
+                <img
+                  src="https://res.cloudinary.com/ducc0wskb/image/upload/v1695668560/Anna_Gapyuk_1_copy_9_bhk8ly.png"
+                  width="53px"
+                  height="auto"
+                  alt="logo"
+                  className="d-inline-block d-md-none"
+                />
+              </Link>
+              <p
+                className="text-center"
+                style={{ fontSize: "12px", color: "#f0faf7" }}
+              >
                 &copy; {date.getFullYear()}
-                <span
-                  className="text-right"
+                <Link
+                  to="https://github.com/anettta"
                   style={{
-                    float: "right",
                     textDecoration: "none",
+                    marginLeft: "4px",
+                    color: "#f0faf7",
                   }}
                 >
-                  <Link
-                    to="https://github.com/anettta"
-                    style={{ textDecoration: "none", color: "#14927d" }}
-                  >
-                    by Anna Gapyuk
-                  </Link>
-                </span>
+                  by Anna Gapyuk
+                </Link>
               </p>
             </div>
           </div>

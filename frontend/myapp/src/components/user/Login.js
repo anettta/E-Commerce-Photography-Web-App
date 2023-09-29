@@ -47,7 +47,7 @@ const Login = () => {
             <div className="row wrapper">
               <div className="col-10 col-lg-5">
                 <form className="shadow-lg " onSubmit={submitHandler}>
-                  <h1 className="mb-3">Login</h1>
+                  <h1 className="mb-3">Sign in</h1>
                   <div className="form-group">
                     <label htmlFor="email_field">Email</label>
                     <input
@@ -79,7 +79,7 @@ const Login = () => {
                     type="submit"
                     className="btn btn-block py-3"
                   >
-                    LOGIN
+                    SIGN IN
                   </button>
 
                   <Link to="/register" className="float-right mt-3">

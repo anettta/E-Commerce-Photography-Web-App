@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
-
+// import { Editor } from "react-draft-wysiwyg";
+// import "/./node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import MetaData from "../layout/MetaData";
 
 import { useAlert } from "react-alert";
@@ -120,10 +121,11 @@ const NewProduct = () => {
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group ">
                   <label htmlFor="description_field">Description</label>
+
                   <textarea
-                    className="form-control"
+                    className="form-control "
                     id="description_field"
                     rows="8"
                     value={description}

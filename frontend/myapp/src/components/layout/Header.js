@@ -142,7 +142,7 @@ const Header = () => {
                               to="/"
                               onClick={logoutHandler}
                             >
-                              Logout
+                              sign out
                             </Link>
                           </div>
                         </div>
@@ -153,9 +153,9 @@ const Header = () => {
                             className="text-xs fw-bold text-reset "
                             id="login_btn"
                           >
-                            <i class="fas fa-user me-2 "></i>
+                            <i class="fa fa-sign-in me-2 "></i>
                             <span class="d-none d-md-inline-block  ">
-                              Login
+                              sign in
                             </span>
                           </Link>
                         )
@@ -231,7 +231,6 @@ const Header = () => {
               alt="logo"
               className="d-inline-block d-md-none"
             />
-            <span className="sr-only">go to homepage</span>
           </Link>
           <div className="navbar-buttons">
             <button
