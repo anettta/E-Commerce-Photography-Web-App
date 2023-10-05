@@ -31,6 +31,10 @@ const Cart = () => {
   const checkoutHandler = () => {
     navigate("/login?redirect=shipping");
   };
+  const buttonStyle = {
+    backgroundColor: "#36454f",
+    color: "#f0faf7",
+  };
   return (
     <Fragment>
       <MetaData title={"Your Cart"} />
@@ -50,7 +54,7 @@ const Cart = () => {
                   <hr />
                   <div className="cart-item" key={item.product}>
                     <div className="row">
-                      <div className="col-4 col-lg-3">
+                      <div className="col-6 col-lg-3">
                         <img
                           src={item.image}
                           alt="Laptop"
@@ -60,24 +64,21 @@ const Cart = () => {
                         />
                       </div>
 
-                      <div className="col-5 col-lg-3">
+                      <div className="col-6 col-lg-3">
                         <Link to={`/products/${item.product}`}>
                           {item.name}
                         </Link>
                       </div>
 
-                      <div className="col-4 col-lg-2 mt-4 mt-lg-0">
+                      <div className="col-3 col-lg-2 mt-4 mt-lg-0">
                         <p id="card_item_price">${item.price}</p>
                       </div>
 
-                      <div className="col-4 col-lg-3 mt-4 mt-lg-0">
+                      <div className="col-6 col-lg-3 mt-4 mt-lg-0">
                         <div className="stockCounter d-inline">
                           <span
                             className="btn  minus"
-                            style={{
-                              backgroundColor: "#36454f",
-                              color: "#f0faf7",
-                            }}
+                            style={buttonStyle}
                             onClick={() =>
                               decreaseQty(item.product, item.quantity)
                             }
@@ -93,10 +94,7 @@ const Cart = () => {
 
                           <span
                             className="btn  plus"
-                            style={{
-                              backgroundColor: "#36454f",
-                              color: "#f0faf7",
-                            }}
+                            style={buttonStyle}
                             onClick={() =>
                               increaseQty(
                                 item.product,
@@ -110,13 +108,17 @@ const Cart = () => {
                         </div>
                       </div>
 
-                      <div className="col-4 col-lg-1 mt-4 mt-lg-0">
-                        <i
+                      <div className="col-3 col-lg-1 mt-4 mt-lg-0">
+                        <button
                           id="delete_cart_item"
-                          className="fa fa-trash btn"
-                          style={{ color: "#ce6c86", width: "40px" }}
+                          className="fa fa-trash"
+                          style={{
+                            color: "#ce6c86",
+                            background: "none",
+                            fontSize: "24px",
+                          }}
                           onClick={() => removeCartItemHandler(item.product)}
-                        ></i>
+                        ></button>
                       </div>
                     </div>
                   </div>

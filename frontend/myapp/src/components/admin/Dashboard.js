@@ -29,6 +29,11 @@ const Dashboard = () => {
     dispatch(allOrders);
     dispatch(allUsers);
   }, [dispatch]);
+
+  const dashboardStyle = {
+    backgroundColor: "#36454f",
+    color: "#3bb293",
+  };
   return (
     <Fragment>
       <div className="row">
@@ -44,10 +49,7 @@ const Dashboard = () => {
               <MetaData title={"Admin Dashboard"} />
               <div className="row pr-4">
                 <div className="col-xl-12 col-sm-12 mb-3">
-                  <div
-                    className="card o-hidden h-100"
-                    style={{ backgroundColor: "#36454f", color: "#3bb293" }}
-                  >
+                  <div className="card o-hidden h-100" style={dashboardStyle}>
                     <div className="card-body">
                       <div className="text-center card-font-size">
                         Total Amount
@@ -60,10 +62,7 @@ const Dashboard = () => {
 
               <div className="row pr-4">
                 <div className="col-xl-3 col-sm-6 mb-3">
-                  <div
-                    className="card  o-hidden h-100"
-                    style={{ backgroundColor: "#59c8aa", color: "#f0faf7" }}
-                  >
+                  <div className="card  o-hidden h-100" style={dashboardStyle}>
                     <div className="card-body">
                       <div className="text-center card-font-size">
                         Products
@@ -83,10 +82,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="col-xl-3 col-sm-6 mb-3">
-                  <div
-                    className="card  o-hidden h-100"
-                    style={{ backgroundColor: "#6cceb4", color: "#f0faf7" }}
-                  >
+                  <div className="card  o-hidden h-100" style={dashboardStyle}>
                     <div className="card-body">
                       <div className="text-center card-font-size">
                         Orders
@@ -106,10 +102,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="col-xl-3 col-sm-6 mb-3">
-                  <div
-                    className="card  o-hidden h-100"
-                    style={{ backgroundColor: "#7fd4be", color: "#f0faf7" }}
-                  >
+                  <div className="card  o-hidden h-100" style={dashboardStyle}>
                     <div className="card-body">
                       <div className="text-center card-font-size">
                         Users

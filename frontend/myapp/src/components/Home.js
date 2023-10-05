@@ -57,7 +57,7 @@ const Home = () => {
   if (keyword) {
     count = filteredProductsCount;
   }
-  const { user, isAuthenticated } = useSelector((state) => state.auth);
+
   return (
     <Fragment>
       {loading ? (
