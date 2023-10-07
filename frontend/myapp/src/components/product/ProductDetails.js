@@ -14,6 +14,7 @@ import { addItemToCart } from "../../actions/cartActions";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 import ListReviews from "../review/ListReviews";
 import Product from "./Product";
+import NotFound from "../layout/NotFound";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -119,6 +120,10 @@ const ProductDetails = () => {
 
     dispatch(newReview(formData));
   };
+
+  if (error && error?.status === 404) {
+    return <NotFound />;
+  }
 
   return (
     <Fragment>

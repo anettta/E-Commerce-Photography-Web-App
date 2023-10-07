@@ -45,6 +45,7 @@ import UsersList from "./components/admin/UsersList";
 import UpdateUser from "./components/admin/UpdateUser";
 import ProductReviews from "./components/admin/ProductReviews";
 import CreativeExercises from "./pages/CreativeExercises";
+import NotFound from "./components/layout/NotFound";
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
@@ -82,6 +83,7 @@ function App() {
                 element={<CreativeExercises />}
                 exact
               />
+              <Route path="*" element={<NotFound />} />
               <Route path="/cart" element={<Cart />} exact />
               <Route path="/search/:keyword" element={<Home />} />
               <Route path="/product/:id" element={<ProductDetails />} />
