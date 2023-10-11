@@ -165,7 +165,7 @@ const Home = () => {
                   </div>
 
                   {products?.map((product) => (
-                    <Product key={product._id} product={product} col={4} />
+                    <Product key={product._id} product={product} col={3} />
                   ))}
                 </Fragment>
               )}

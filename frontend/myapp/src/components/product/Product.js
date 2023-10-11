@@ -9,27 +9,25 @@ const Product = ({ product, col }) => {
         {/* <div classNameName="mb-3">
         <span id="cat">{product.category.toUpperCase()}</span>
       </div> */}
-        <div className="">
-          <Link to={`/product/${product._id}`}>
-            <img
-              className="img-fluid cool-frame"
-              alt="img"
-              src={productMainImage}
-            />
-          </Link>
 
-          <div className="card-body d-flex flex-column">
-            <h5
-              className="card-title text-center "
-              style={{
-                fontFamily: "avenir",
-                margin: "10px",
-                fontWeight: "500",
-              }}
-            >
-              <Link to={`/product/${product._id}`}>{product.name}</Link>
-            </h5>
-            {/* <div classNameName="ratings mt-auto">
+        <Link to={`/product/${product._id}`}>
+          <div className=" frame-style img-frame">
+            <img className="img-fluid" alt="img" src={productMainImage} />
+          </div>
+        </Link>
+
+        <div className="card-body d-flex flex-column">
+          <h6
+            className="card-title text-center mt-4"
+            style={{
+              fontFamily: "avenir",
+              margin: "10px",
+              fontWeight: "500",
+            }}
+          >
+            <Link to={`/product/${product._id}`}>{product.name}</Link>
+          </h6>
+          {/* <div classNameName="ratings mt-auto">
             <div classNameName="rating-outer">
               <div
                 classNameName="rating-inner"
@@ -38,24 +36,23 @@ const Product = ({ product, col }) => {
             </div>
             <span id="no_of_reviews">({product.numOfReviews} Reviews)</span>
           </div> */}
-            <p
-              className="card-text text-center"
-              style={{
-                fontFamily: "avenir",
-                fontWeight: "700",
-              }}
-            >
-              ${product.price}
-            </p>
+          <p
+            className="card-text text-center"
+            style={{
+              fontFamily: "avenir",
+              fontWeight: "700",
+            }}
+          >
+            ${product.price}
+          </p>
 
-            {/* <Link
+          {/* <Link
             to={`/product/${product._id}`}
             id="view_btn"
             className="btn btn-block"
           >
             View Details
           </Link> */}
-          </div>
         </div>
       </div>
     </>
