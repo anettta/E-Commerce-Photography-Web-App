@@ -58,6 +58,52 @@ body {
   }
 }
 
+.categories {
+  display: flex;
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-size: 12px;
+
+  width: 90px;
+  height: 90px;
+
+  border-radius: 90px;
+  text-align: center;
+  color: #36454f;
+
+  align-items: center;
+  box-shadow: 0 0 5px #36454f;
+  text-shadow: 0 0 5px #f0faf7;
+  justify-content: center;
+  font-family: "Avenir";
+  text-transform: uppercase;
+}
+
+.categories::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #36454f;
+  transition: 0.5s;
+  transform: scale(0.9);
+  z-index: -1;
+}
+
+.categories:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #14927d;
+}
+
+.categories:hover {
+  color: #36454f;
+  box-shadow: 0 0 5px #14927d;
+  color: #14927d;
+}
+
 /*
  * Extra utilities
  */
@@ -264,6 +310,7 @@ body {
 #login_btn,
 #view_btn {
   color: #f0faf7;
+
   font-weight: 900;
   /* padding: 0.4rem 1.8rem; */
   font-family: avenir;

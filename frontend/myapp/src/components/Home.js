@@ -6,7 +6,7 @@ import Product from "./product/Product";
 import Loader from "./layout/Loader";
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 // import Content from "./layout/Content";
@@ -23,6 +23,11 @@ const Home = () => {
   // const [seller, setSeller] = useState("");
 
   const categories = ["Fine Art Photography", "String Art", "Greeting cards"];
+  const categoryImages = [
+    "https://res.cloudinary.com/ducc0wskb/image/upload/v1697078930/camera_o7hluz.png",
+    "https://res.cloudinary.com/ducc0wskb/image/upload/v1697078930/embroidery_flxia0.png",
+    "https://res.cloudinary.com/ducc0wskb/image/upload/v1697078930/card_kke1hi.png",
+  ];
 
   // const sellers = ["Amazon", "AG"];
 
@@ -70,21 +75,11 @@ const Home = () => {
             !keyword &&
             (!isAuthenticated || user.role !== "admin") && <Content />} */}
 
-          <h3 id="products_heading" className="text-center ">
+          <section id="products" className="container mt-3">
+            {/* <div className="row"> */}
             {count > 0 ? (
-              <p style={{ color: "#36454f" }}>artworks</p>
-            ) : (
-              <p style={{ color: "#ce6c86" }}>no artworks found</p>
-            )}
-          </h3>
-
-          <section id="products" className="container mt-5">
-            <div className="row">
-              {count > 0 && (
-                <Fragment>
-                  <div className="col-12 col-md-3 mt-5 mb-5">
-                    <div className="px-5">
-                      <Range
+              <Fragment>
+                {/* <Range
                         marks={{ 1: `$1`, 1000: `$1000` }}
                         min={1}
                         max={1000}
@@ -96,29 +91,44 @@ const Home = () => {
                         }}
                         value={price}
                         onChange={(price) => setPrice(price)}
-                      />
+                      /> */}
 
-                      <hr className="my-5" />
-                      <div className="mt-5">
-                        <h4 className="mb-3">Categories</h4>
-                        <ul className="pl-0">
-                          {categories.map((category) => (
-                            <li
-                              style={{
-                                cursor: "pointer",
-                                listStyleType: "none",
-                              }}
-                              key={category}
-                              onClick={() => setCategory(category)}
-                            >
-                              {category}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                {/* <hr className="my-5" /> */}
+                <div className="row">
+                  <div className="col-12 col-12">
+                    {/* <h4 className="mb-3">Categories</h4> */}
 
-                      <hr className="my-3" />
-                      <div className="mt-5">
+                    <ul className="d-flex align-items-center justify-content-evenly ">
+                      {categories.map((category, i) => (
+                        <li
+                          className="categories"
+                          style={{
+                            cursor: "pointer",
+                            listStyleType: "none",
+                            backgroundImage: `url(${categoryImages[i]})`,
+                          }}
+                          key={category}
+                          onClick={() => setCategory(category)}
+                        >
+                          <span style={{ paddingTop: "160px" }}>
+                            {category}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* <h3 id="products_heading" className="text-center ">
+                  {keyword && count > 0 ? (
+                    <p style={{ color: "#36454f" }}>artworks</p>
+                  ) : (
+                    <p style={{ color: "#ce6c86" }}>no artworks found</p>
+                  )}
+                </h3> */}
+
+                {/* <hr className="my-3" /> */}
+                {/* <div className="mt-5">
                         <h4 className="mb-3">Ratings</h4>
                         <ul className="pl-0">
                           {[5, 4, 3, 2, 1].map((star) => (
@@ -141,9 +151,9 @@ const Home = () => {
                             </li>
                           ))}
                         </ul>
-                      </div>
+                      </div> */}
 
-                      {/* <hr className="my-3" />
+                {/* <hr className="my-3" />
                       <div className="mt-5">
                         <h4 className="mb-3">Sellers</h4>
                         <ul className="pl-0">
@@ -161,20 +171,23 @@ const Home = () => {
                           ))}
                         </ul>
                       </div> */}
-                    </div>
-                  </div>
-
+                <div className="mt-5">
                   {products?.map((product) => (
                     <Product key={product._id} product={product} col={3} />
                   ))}
-                </Fragment>
-              )}
-              {/* ) : (
+                </div>
+              </Fragment>
+            ) : (
+              <h4 id="products_heading" className="text-center ">
+                <p style={{ color: "#ce6c86" }}>no artworks found</p>
+              </h4>
+            )}
+            {/* ) : (
                 products?.map((product) => (
                   <Product key={product._id} product={product} col={3} />
                 ))
               )} */}
-            </div>
+            {/* </div> */}
           </section>
 
           {resPerPage <= count && (
