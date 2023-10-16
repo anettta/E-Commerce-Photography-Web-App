@@ -6,6 +6,8 @@ import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import dotenv from "dotenv";
 import path from "path";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -14,6 +16,14 @@ app.use(
     limit: "50mb",
     extended: true,
     parameterLimit: 50000,
+  })
+);
+app.use(
+  express.json({
+    limit: "10mb",
+    verify: (req, res, buf) => {
+      req.rawBody = buf.toString();
+    },
   })
 );
 app.use(cookieParser());
@@ -33,6 +43,7 @@ import auth from "./routes/auth.js";
 import order from "./routes/order.js";
 import paymentRoutes from "./routes/payment.js";
 import storyRoutes from "./routes/story.js";
+import { fileURLToPath } from "url";
 
 app.use("/api/v1", products);
 app.use("/api/v1", auth);
