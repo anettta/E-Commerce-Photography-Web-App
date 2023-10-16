@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const connectDatabase = () => {
+export const connectDatabase = () => {
   mongoose
     .connect(process.env.DB_URI, {
       useNewUrlParser: true,
@@ -8,9 +8,9 @@ const connectDatabase = () => {
     })
     .then((con) => {
       console.log(
-        `MongoDB Database connected with HOST: ${con.connection.host}`
+        `MongoDB Database connected with HOST: ${con?.connection?.host}`
       );
     });
 };
 
-module.exports = connectDatabase;
+export default connectDatabase;

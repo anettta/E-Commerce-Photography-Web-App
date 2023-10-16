@@ -1,10 +1,10 @@
 // Check if user is authenticated
-const User = require("../models/user");
-const jwt = require("jsonwebtoken");
-const ErrorHandler = require("../utils/errorHandler");
-const catchAsyncErrors = require("./catchAsyncErrors");
+import User from "../models/user.js";
+import jwt from "jsonwebtoken";
+import ErrorHandler from "../utils/errorHandler.js";
+import catchAsyncErrors from "./catchAsyncErrors.js";
 
-exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
+export const isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {
     return next(new ErrorHandler("Please login", 401));
@@ -15,7 +15,7 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Handling user roles
-exports.authorizeRoles = (...roles) => {
+export const authorizeRoles = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return next(

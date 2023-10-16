@@ -5,7 +5,7 @@ const Product = ({ product, col }) => {
   const productMainImage = product && product.images[0].url;
   return (
     <>
-      <div className={`col-sm-12 col-md-6 col-lg-${col} my-3`}>
+      <div className={`col-sm-12 col-md-6 col-lg-${col} my-5  `}>
         {/* <div classNameName="mb-3">
         <span id="cat">{product.category.toUpperCase()}</span>
       </div> */}

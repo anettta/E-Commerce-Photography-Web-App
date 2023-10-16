@@ -68,14 +68,14 @@ const Home = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div>
+        <div className="container ">
           <MetaData title={"Anna Gapyuk Creative Studio"} />
 
           {/* {!loading &&
             !keyword &&
             (!isAuthenticated || user.role !== "admin") && <Content />} */}
 
-          <section id="products" className="container mt-3">
+          <section id="products" className="container ">
             {/* <div className="row"> */}
             {count > 0 ? (
               <Fragment>
@@ -94,11 +94,11 @@ const Home = () => {
                       /> */}
 
                 {/* <hr className="my-5" /> */}
-                <div className="row">
-                  <div className="col-12 col-12">
+                <div className="row ">
+                  <div className="col-12 col-12 ">
                     {/* <h4 className="mb-3">Categories</h4> */}
 
-                    <ul className="d-flex align-items-center justify-content-evenly ">
+                    <ul className="d-flex align-items-center justify-content-evenly mt-3 ">
                       {categories.map((category, i) => (
                         <li
                           className="categories"
@@ -171,7 +171,7 @@ const Home = () => {
                           ))}
                         </ul>
                       </div> */}
-                <div className="mt-5">
+                <div>
                   {products?.map((product) => (
                     <Product key={product._id} product={product} col={3} />
                   ))}

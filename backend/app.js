@@ -1,9 +1,11 @@
-const express = require("express");
-const errorMiddleware = require("./middlewares/error");
+import express from "express";
+import errorMiddleware from "./middlewares/error.js";
 const app = express();
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
-const fileUpload = require("express-fileupload");
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+import fileUpload from "express-fileupload";
+import dotenv from "dotenv";
+import path from "path";
 
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -17,24 +19,26 @@ app.use(
 app.use(cookieParser());
 app.use(fileUpload());
 // const dotenv = require("dotenv");
-const path = require("path");
 
 // setting up config file
 // dotenv.config({ path: "config.env" });
 // setting up config file
+
 if (process.env.NODE_ENV !== "PRODUCTION")
-  require("dotenv").config({ path: "config.env" });
+  dotenv.config({ path: "config.env" });
 
 // Import all routes
-const products = require("./routes/product");
-const auth = require("./routes/auth");
-const order = require("./routes/order");
-const payment = require("./routes/payment");
+import products from "./routes/product.js";
+import auth from "./routes/auth.js";
+import order from "./routes/order.js";
+import paymentRoutes from "./routes/payment.js";
+import storyRoutes from "./routes/story.js";
 
 app.use("/api/v1", products);
 app.use("/api/v1", auth);
 app.use("/api/v1", order);
-app.use("/api/v1", payment);
+app.use("/api/v1", paymentRoutes);
+app.use("/api/v1", storyRoutes);
 
 if (process.env.NODE_ENV === "PRODUCTION") {
   app.use(express.static(path.join(__dirname, "../frontend/myapp/build")));
@@ -47,4 +51,4 @@ if (process.env.NODE_ENV === "PRODUCTION") {
 // Middleware to handle errors globally
 app.use(errorMiddleware);
 
-module.exports = app;
+export default app;

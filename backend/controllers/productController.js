@@ -1,12 +1,12 @@
-const Product = require("../models/product");
-const ErrorHandler = require("../utils/errorHandler");
-const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
-const APIFeatures = require("../utils/apiFeatures");
-const cloudinary = require("cloudinary");
+import Product from "../models/product.js";
+import ErrorHandler from "../utils/errorHandler.js";
+import catchAsyncErrors from "../middlewares/catchAsyncErrors.js";
+import APIFeatures from "../utils/apiFeatures.js";
+import cloudinary from "cloudinary";
 
 // create new product => /api/v1/product/new
 
-exports.newProduct = catchAsyncErrors(async (req, res, next) => {
+export const newProduct = catchAsyncErrors(async (req, res, next) => {
   let images = [];
   if (typeof req.body.images === "string") {
     images.push(req.body.images);
@@ -39,8 +39,8 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
 // get all products => /api/v1/products?keyword=apple
 
-exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-  const resPerPage = 4;
+export const getProducts = catchAsyncErrors(async (req, res, next) => {
+  const resPerPage = 8;
   const productsCount = await Product.countDocuments();
 
   const apiFeatures = new APIFeatures(Product.find(), req.query)
@@ -63,7 +63,7 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
 // get all products (Admin) => /api/v1/admin/products
 
-exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+export const getAdminProducts = catchAsyncErrors(async (req, res, next) => {
   const products = await Product.find();
 
   res.status(200).json({
@@ -74,7 +74,7 @@ exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
 
 // get single product details => /api/v1/product/:id
 
-exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
+export const getSingleProduct = catchAsyncErrors(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
 
   if (!product) {
@@ -88,7 +88,7 @@ exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
 
 // update product => /api/v1/admin/product/:id
 
-exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
+export const updateProduct = catchAsyncErrors(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
   if (!product) {
@@ -133,7 +133,7 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
 
 // delete product => /api/v1/admin/product/:id
 
-exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
+export const deleteProduct = catchAsyncErrors(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
   if (!product) {
@@ -156,7 +156,7 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Create new review    =>    /api/v1/review
-exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
+export const createProductReview = catchAsyncErrors(async (req, res, next) => {
   const { rating, comment, productId } = req.body;
 
   const review = {
@@ -193,7 +193,7 @@ exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Get product reviews    =>   /api/v1/reviews
-exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
+export const getProductReviews = catchAsyncErrors(async (req, res, next) => {
   const product = await Product.findById(req.query.id);
 
   res.status(200).json({
@@ -203,7 +203,7 @@ exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Get product reviews    =>   /api/v1/reviews
-exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
+export const deleteReview = catchAsyncErrors(async (req, res, next) => {
   const product = await Product.findById(req.query.productId);
 
   const reviews = product.reviews.filter(

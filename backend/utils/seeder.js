@@ -1,8 +1,7 @@
-const Product = require("../models/product");
-const dotenv = require("dotenv");
-const connectDatabase = require("../config/database");
-const products = require("../data/product");
-const { connect } = require("mongoose");
+import Product from "../models/product.js";
+import dotenv from "dotenv";
+import connectDatabase from "../config/database.js";
+import products from "../data/product.js";
 
 // setting dotenv file
 dotenv.config({ path: "backend/config/config.env" });
