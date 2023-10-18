@@ -4,10 +4,22 @@ class APIFeatures {
     this.queryStr = queryStr;
   }
 
-  search() {
+  searchProduct() {
     const keyword = this.queryStr.keyword
       ? {
           name: {
+            $regex: this.queryStr.keyword,
+            $options: "i",
+          },
+        }
+      : {};
+    this.query = this.query.find({ ...keyword });
+    return this;
+  }
+  searchStory() {
+    const keyword = this.queryStr.keyword
+      ? {
+          story: {
             $regex: this.queryStr.keyword,
             $options: "i",
           },

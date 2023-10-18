@@ -5,6 +5,7 @@
   "dependencies": {
     "@coreui/coreui": "^5.0.0-alpha.1",
     "@coreui/react": "^5.0.0-alpha.0",
+    "@reduxjs/toolkit": "^1.9.7",
     "@stripe/react-stripe-js": "^2.1.2",
     "@stripe/stripe-js": "^2.0.0",
     "@testing-library/jest-dom": "^5.14.1",
