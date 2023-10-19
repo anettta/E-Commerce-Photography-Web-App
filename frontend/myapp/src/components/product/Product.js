@@ -6,14 +6,12 @@ const Product = ({ product, col }) => {
   return (
     <>
       <div className={`col-sm-12 col-md-6 col-lg-${col} my-5  `}>
-        {/* <div classNameName="mb-3">
+        {/* <div classNameName="mb-3"> 
         <span id="cat">{product.category.toUpperCase()}</span>
       </div> */}
 
         <Link to={`/product/${product._id}`}>
-          <div className=" frame-style img-frame">
-            <img className="img-fluid" alt="img" src={productMainImage} />
-          </div>
+          <img className="img-fluid" alt="img" src={productMainImage} />
         </Link>
 
         <div className="card-body d-flex flex-column">

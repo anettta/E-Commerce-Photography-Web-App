@@ -5,7 +5,7 @@ import APIFeatures from "../utils/apiFeatures.js";
 // get all stories  => /api/v1/stories
 
 export const getStories = catchAsyncErrors(async (req, res) => {
-  const resPerPage = 8;
+  const resPerPage = 3;
   const apiFeatures = new APIFeatures(Story, req.query)
     .searchStory()
     .filterStories();

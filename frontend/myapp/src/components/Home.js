@@ -75,7 +75,7 @@ const Home = () => {
             !keyword &&
             (!isAuthenticated || user.role !== "admin") && <Content />} */}
 
-          <section id="products" className="container ">
+          <section id="products">
             {/* <div className="row"> */}
             {count > 0 ? (
               <Fragment>
@@ -117,9 +117,8 @@ const Home = () => {
                       ))}
                     </ul>
                   </div>
-                </div>
 
-                {/* <h3 id="products_heading" className="text-center ">
+                  {/* <h3 id="products_heading" className="text-center ">
                   {keyword && count > 0 ? (
                     <p style={{ color: "#36454f" }}>artworks</p>
                   ) : (
@@ -127,8 +126,8 @@ const Home = () => {
                   )}
                 </h3> */}
 
-                {/* <hr className="my-3" /> */}
-                {/* <div className="mt-5">
+                  {/* <hr className="my-3" /> */}
+                  {/* <div className="mt-5">
                         <h4 className="mb-3">Ratings</h4>
                         <ul className="pl-0">
                           {[5, 4, 3, 2, 1].map((star) => (
@@ -153,7 +152,7 @@ const Home = () => {
                         </ul>
                       </div> */}
 
-                {/* <hr className="my-3" />
+                  {/* <hr className="my-3" />
                       <div className="mt-5">
                         <h4 className="mb-3">Sellers</h4>
                         <ul className="pl-0">
@@ -171,10 +170,13 @@ const Home = () => {
                           ))}
                         </ul>
                       </div> */}
-                <div>
-                  {products?.map((product) => (
-                    <Product key={product._id} product={product} col={3} />
-                  ))}
+                  <div className="col-lg-12 col-md-12 mb-4 mb-lg-0">
+                    <div className="d-flex align-items-center justify-content-evenly mt-3 ">
+                      {products?.map((product) => (
+                        <Product key={product._id} product={product} col={4} />
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </Fragment>
             ) : (
