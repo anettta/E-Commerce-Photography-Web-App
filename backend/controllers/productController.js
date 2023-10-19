@@ -45,7 +45,7 @@ export const getProducts = catchAsyncErrors(async (req, res, next) => {
 
   const apiFeatures = new APIFeatures(Product.find(), req.query)
     .searchProduct()
-    .filter();
+    .filterProducts();
 
   let products = await apiFeatures.query;
   let filteredProductsCount = products.length;

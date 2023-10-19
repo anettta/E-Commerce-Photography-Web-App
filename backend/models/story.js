@@ -30,7 +30,7 @@ const storySchema = new mongoose.Schema(
       type: String,
       required: [true, "Please select category for this story"],
       enum: {
-        values: ["Environment", "Nature Appreciation", "People"],
+        values: ["environment", "nature Appreciation", "people"],
         message: "Please select correct category for this story",
       },
     },

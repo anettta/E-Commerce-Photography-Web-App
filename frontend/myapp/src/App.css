@@ -8,6 +8,7 @@ body {
   color: #36454f;
   overflow-x: hidden;
   background-color: #f0faf7;
+
   /* background-color: #ffffff; */
 }
 .img-frame {
@@ -422,7 +423,11 @@ body {
 *
 */
 #footer {
-  background: #f0faf7;
+  /* background: #f0faf7; */
+  background-size: cover;
+  background-repeat: none;
+  background-blend-mode: overlay;
+  background-image: url("https://res.cloudinary.com/ducc0wskb/image/upload/v1697651871/Delicate_Watercolor_Zoom_Virtual_Background_kftezq.png");
   padding: 100px 0;
   font-family: Arial, Helvetica, sans-serif;
 }

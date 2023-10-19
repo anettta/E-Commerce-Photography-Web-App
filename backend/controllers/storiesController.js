@@ -5,10 +5,16 @@ import APIFeatures from "../utils/apiFeatures.js";
 // get all stories  => /api/v1/stories
 
 export const getStories = catchAsyncErrors(async (req, res) => {
-  const apiFeatures = new APIFeatures(Story, req.query).searchStory();
+  const resPerPage = 8;
+  const apiFeatures = new APIFeatures(Story, req.query)
+    .searchStory()
+    .filterStories();
 
   let stories = await apiFeatures.query;
   let filteredStoryCount = stories.length;
+
+  apiFeatures.pagination(resPerPage);
+  stories = await apiFeatures.query.clone();
 
   res.status(200).json({
     filteredStoryCount,

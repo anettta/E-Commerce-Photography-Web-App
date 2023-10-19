@@ -29,7 +29,7 @@ class APIFeatures {
     return this;
   }
 
-  filter() {
+  filterProducts() {
     const queryCopy = { ...this.queryStr };
 
     // Removing fields from the query
@@ -41,6 +41,21 @@ class APIFeatures {
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (match) => `$${match}`);
 
     this.query = this.query.find(JSON.parse(queryStr));
+    return this;
+  }
+  filterStories() {
+    const queryCopy = { ...this.queryStr };
+
+    // Removing fields from the query
+    const removeFields = ["keyword", "limit", "page"];
+    removeFields.forEach((field) => delete queryCopy[field]);
+
+    // Advance filter for price, ratings, etc
+    // let queryStr = JSON.stringify(queryCopy);
+    // queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (match) => `$${match}`);
+
+    // this.query = this.query.find(JSON.parse(queryStr));
+    this.query = this.query.find(queryCopy);
     return this;
   }
 
