@@ -9,6 +9,7 @@ import Pagination from "react-js-pagination";
 import { Link, useParams } from "react-router-dom";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+
 // import Content from "./layout/Content";
 // import CarouselStories from "./layout/CarouselStories";
 
@@ -99,12 +100,28 @@ const Home = () => {
                     {/* <h4 className="mb-3">Categories</h4> */}
 
                     <ul className="d-flex align-items-center justify-content-evenly mt-3 ">
+                      {/* <Link
+                        to="/"
+                        onClick={() => {
+                          window.location.href = "/";
+                        }}
+                      >
+                        <li
+                          className="categories"
+                          style={{
+                            cursor: "pointer",
+                            listStyleType: "none",
+                            backgroundImage: `url("https://res.cloudinary.com/ducc0wskb/image/upload/v1697820422/Untitled_design_zbtd7v.png")`,
+                          }}
+                        ></li>
+                      </Link> */}
                       {categories.map((category, i) => (
                         <li
                           className="categories"
                           style={{
                             cursor: "pointer",
                             listStyleType: "none",
+
                             backgroundImage: `url(${categoryImages[i]})`,
                           }}
                           key={category}
@@ -117,8 +134,8 @@ const Home = () => {
                       ))}
                     </ul>
                   </div>
-
-                  {/* <h3 id="products_heading" className="text-center ">
+                </div>
+                {/* <h3 id="products_heading" className="text-center ">
                   {keyword && count > 0 ? (
                     <p style={{ color: "#36454f" }}>artworks</p>
                   ) : (
@@ -126,8 +143,8 @@ const Home = () => {
                   )}
                 </h3> */}
 
-                  {/* <hr className="my-3" /> */}
-                  {/* <div className="mt-5">
+                {/* <hr className="my-3" /> */}
+                {/* <div className="mt-5">
                         <h4 className="mb-3">Ratings</h4>
                         <ul className="pl-0">
                           {[5, 4, 3, 2, 1].map((star) => (
@@ -152,7 +169,7 @@ const Home = () => {
                         </ul>
                       </div> */}
 
-                  {/* <hr className="my-3" />
+                {/* <hr className="my-3" />
                       <div className="mt-5">
                         <h4 className="mb-3">Sellers</h4>
                         <ul className="pl-0">
@@ -170,14 +187,22 @@ const Home = () => {
                           ))}
                         </ul>
                       </div> */}
-                  <div className="col-lg-12 col-md-12 mb-4 mb-lg-0">
-                    <div className="d-flex align-items-center justify-content-evenly mt-3 ">
-                      {products?.map((product) => (
-                        <Product key={product._id} product={product} col={4} />
-                      ))}
+
+                <section id="products" className="mt-5">
+                  <div class="album py-5 ">
+                    <div class="container">
+                      <div class="row">
+                        {products?.map((product) => (
+                          <Product
+                            key={product._id}
+                            product={product}
+                            col={4}
+                          />
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </section>
               </Fragment>
             ) : (
               <h4 id="products_heading" className="text-center ">

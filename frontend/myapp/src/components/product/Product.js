@@ -5,17 +5,26 @@ const Product = ({ product, col }) => {
   const productMainImage = product && product.images[0].url;
   return (
     <>
-      <div className={`col-sm-12 col-md-6 col-lg-${col} my-5  `}>
+      <div className={`col-sm-12 col-md-6 col-lg-${col} my-3  `}>
         {/* <div classNameName="mb-3"> 
         <span id="cat">{product.category.toUpperCase()}</span>
       </div> */}
 
         <Link to={`/product/${product._id}`}>
-          <img className="img-fluid" alt="img" src={productMainImage} />
+          <div className="container-custom  rounded products">
+            <img
+              className="img-fluid card-img-top mx-auto "
+              alt="img"
+              src={productMainImage}
+            />
+            <div className="bottom-left badge badge-info card-text mt-2">
+              ${product.price}
+            </div>
+          </div>
         </Link>
 
         <div className="card-body d-flex flex-column">
-          <h6
+          {/* <h6
             className="card-title text-center mt-4"
             style={{
               fontFamily: "avenir",
@@ -24,7 +33,7 @@ const Product = ({ product, col }) => {
             }}
           >
             <Link to={`/product/${product._id}`}>{product.name}</Link>
-          </h6>
+          </h6> */}
           {/* <div classNameName="ratings mt-auto">
             <div classNameName="rating-outer">
               <div
@@ -34,7 +43,7 @@ const Product = ({ product, col }) => {
             </div>
             <span id="no_of_reviews">({product.numOfReviews} Reviews)</span>
           </div> */}
-          <p
+          {/* <p
             className="card-text text-center"
             style={{
               fontFamily: "avenir",
@@ -42,7 +51,7 @@ const Product = ({ product, col }) => {
             }}
           >
             ${product.price}
-          </p>
+          </p> */}
 
           {/* <Link
             to={`/product/${product._id}`}
