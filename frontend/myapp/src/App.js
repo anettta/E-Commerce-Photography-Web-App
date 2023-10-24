@@ -240,7 +240,7 @@ function App() {
                 exact
               />
               <Route
-                path="/admin/product"
+                path="/admin/product/new"
                 isAdmin={true}
                 element={
                   <ProtectedRoute>

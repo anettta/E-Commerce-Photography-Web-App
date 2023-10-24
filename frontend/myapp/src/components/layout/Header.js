@@ -271,7 +271,7 @@ const Header = () => {
               </li>
               <li className="nav-item dropdown menu-large">
                 <Link
-                  href="/"
+                  to="/"
                   data-toggle="dropdown"
                   data-hover="dropdown"
                   data-delay="200"
@@ -378,7 +378,7 @@ const Header = () => {
               </li>
               <li className="nav-item dropdown menu-large">
                 <Link
-                  href="/"
+                  to="/"
                   data-toggle="dropdown"
                   data-hover="dropdown"
                   data-delay="200"

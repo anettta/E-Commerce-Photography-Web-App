@@ -9,18 +9,18 @@ import path from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(express.json({ limit: "50mb" }));
-app.use(bodyParser.json({ limit: "50mb" }));
+app.use(express.json({ limit: "100mb" }));
+app.use(bodyParser.json({ limit: "100mb" }));
 app.use(
   bodyParser.urlencoded({
-    limit: "50mb",
+    limit: "100mb",
     extended: true,
     parameterLimit: 50000,
   })
 );
 app.use(
   express.json({
-    limit: "10mb",
+    limit: "100mb",
     verify: (req, res, buf) => {
       req.rawBody = buf.toString();
     },
