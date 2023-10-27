@@ -25,7 +25,7 @@ export const getStories = catchAsyncErrors(async (req, res) => {
 // Create new story => /api/v1/admin/stories
 export const newStory = catchAsyncErrors(async (req, res) => {
   const story = await Story.create(req.body);
-
+  req.body.user = req.user._id;
   res.status(200).json({
     story,
   });

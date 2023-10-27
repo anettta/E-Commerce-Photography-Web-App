@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Please enter your name"],
-    maxLength: [30, "Your name cannot exceed 30 characters"],
+    maxLength: [50, "Your name cannot exceed 50 characters"],
   },
   email: {
     type: String,
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter your password"],
     minlength: [6, "Your password must be longer than 6 characters"],
-    select: false,
+    select: false, // means that we don't send password with the user response even though paswword is encrypted
   },
   avatar: {
     public_id: {

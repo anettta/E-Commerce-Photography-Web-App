@@ -1,15 +1,14 @@
 import User from "../models/user.js";
-
 import ErrorHandler from "../utils/errorHandler.js";
-import catchAsyncError from "../middlewares/catchAsyncErrors.js";
 import sendEmail from "../utils/sendEmail.js";
 import catchAsyncErrors from "../middlewares/catchAsyncErrors.js";
 import crypto from "crypto";
 import sendToken from "../utils/jwtToken.js";
 import cloudinary from "cloudinary";
+import { getResetPasswordTemplate } from "../utils/emailTemplates.js";
 
 // Register a user => /api/v1/register
-export const registerUser = catchAsyncError(async (req, res, next) => {
+export const registerUser = catchAsyncErrors(async (req, res, next) => {
   const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: "avatars",
     width: 150,
@@ -27,11 +26,11 @@ export const registerUser = catchAsyncError(async (req, res, next) => {
     },
   });
 
-  sendToken(user, 200, res);
+  sendToken(user, 201, res);
 });
 
 // Login User => /a[i/v1/login]
-export const loginUser = catchAsyncError(async (req, res, next) => {
+export const loginUser = catchAsyncErrors(async (req, res, next) => {
   const { email, password } = req.body;
 
   // Checks if email and password are entered by the user
@@ -52,7 +51,7 @@ export const loginUser = catchAsyncError(async (req, res, next) => {
     return next(new ErrorHandler("Invalid Email or Password", 401));
   }
 
-  sendToken(user, 200, res);
+  sendToken(user, 201, res);
 });
 
 // Forgot Password => /api/v1/password/forgot
@@ -65,18 +64,16 @@ export const forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
   // Get reset token
   const resetToken = user.getResetPasswordToken();
-  await user.save({ validateBeforeSave: false });
+  await user.save();
 
   // Create reset password url
-  const resetUrl = `${req.protocol}://${req.get(
-    "host"
-  )}/password/reset/${resetToken}`;
+  const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
-  const message = `Your password reset token is as follows: \n\n${resetUrl}\n\nIf you have not requested this email, then ignore it.`;
+  const message = getResetPasswordTemplate(user?.name, resetUrl);
   try {
     await sendEmail({
       email: user.email,
-      subject: "Nature Photography Password Recovery",
+      subject: "Anna Gapyuk Creative Studio Password Recovery",
       message,
     });
     res.status(200).json({
@@ -86,8 +83,8 @@ export const forgotPassword = catchAsyncErrors(async (req, res, next) => {
   } catch (error) {
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
-    await user.save({ validateBeforeSave: false });
-    return next(new ErrorHandler(error.message, 500));
+    await user.save();
+    return next(new ErrorHandler(error?.message, 500));
   }
 });
 
@@ -101,7 +98,7 @@ export const resetPassword = catchAsyncErrors(async (req, res, next) => {
 
   const user = await User.findOne({
     resetPasswordToken,
-    resetPasswordExpire: { $gt: Date.now() },
+    resetPasswordExpire: { $gt: Date.now() }, // greater than current time
   });
   if (!user) {
     return next(

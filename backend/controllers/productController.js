@@ -29,7 +29,7 @@ export const newProduct = catchAsyncErrors(async (req, res, next) => {
 
   console.log(req.body.images);
   console.log(req.body.images.length);
-  req.body.user = req.user.id;
+  req.body.user = req.user._id;
   const product = await Product.create(req.body);
   res.status(201).json({
     success: true,

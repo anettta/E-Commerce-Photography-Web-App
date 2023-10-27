@@ -126,23 +126,28 @@ const Header = () => {
                             aria-labelledby="dropDownMenuButton"
                           >
                             {user && user.role === "admin" && (
-                              <Link className="dropdown-item" to="/dashboard">
+                              <Link
+                                className="dropdown-item "
+                                to="/dashboard"
+                                style={{ color: "#6cceb4", fontWeight: "700" }}
+                              >
                                 Dashboard
                               </Link>
                             )}
-                            <CDropdownDivider />
-                            <Link className="dropdown-item" to="/orders/me">
-                              Orders
+
+                            <Link className="dropdown-item " to="/orders/me">
+                              <b>Orders</b>
                             </Link>
                             <Link className="dropdown-item" to="/me">
-                              Profile
+                              <b>Profile</b>
                             </Link>
                             <Link
                               className="dropdown-item text-danger"
                               to="/"
                               onClick={logoutHandler}
+                              style={{ fontWeight: "700" }}
                             >
-                              sign out
+                              Sign out
                             </Link>
                           </div>
                         </div>
