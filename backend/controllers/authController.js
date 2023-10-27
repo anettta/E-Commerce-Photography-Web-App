@@ -124,7 +124,7 @@ export const resetPassword = catchAsyncErrors(async (req, res, next) => {
 
 // Get currently logged in user details => /api/v1/me
 export const getUserProfile = catchAsyncErrors(async (req, res, next) => {
-  const user = await User.findById(req.user.id);
+  const user = await User.findById(req?.user?._id);
   res.status(200).json({
     success: true,
     user,
@@ -133,11 +133,11 @@ export const getUserProfile = catchAsyncErrors(async (req, res, next) => {
 
 // Update/Change password => /api/v1/password/update
 export const updatePassword = catchAsyncErrors(async (req, res, next) => {
-  const user = await User.findById(req.user.id).select("+password");
+  const user = await User.findById(req?.user?._id).select("+password");
 
   // check previous user password
-  const isMatched = await user.comparePassword(req.body.oldPassword);
-  if (!isMatched) {
+  const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
+  if (!isPasswordMatched) {
     return next(new ErrorHandler("Old password is incorrect", 400));
   }
 
@@ -154,11 +154,9 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
     name: req.body.name,
     email: req.body.email,
   };
-
   // update avatar
-
   if (req.body.avatar !== "") {
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user._id);
     const image_id = user?.avatar?.public_id;
     const res = await cloudinary.v2.uploader.destroy(image_id);
     const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
@@ -166,21 +164,19 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
       width: 150,
       crop: "scale",
     });
-    console.log(result);
     newUserData.avatar = {
       public_id: result.public_id,
       url: result.secure_url,
     };
   }
-
-  const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+  const user = await User.findByIdAndUpdate(req.user._id, newUserData, {
     new: true,
     runValidators: true,
     userFindAndModify: false,
   });
-
   res.status(200).json({
     success: true,
+    user,
   });
 });
 
@@ -209,7 +205,7 @@ export const allUsers = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Get user details => /api/v1/admin/user/:id
+// Get user details => /api/v1/admin/users/:id
 export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findById(req.params.id);
 
@@ -225,7 +221,7 @@ export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Update user profile => /api/v1/admin/user/:id
+// Update user profile => /api/v1/admin/users/:id
 export const updateUser = catchAsyncErrors(async (req, res, next) => {
   const newUserData = {
     name: req.body.name,
@@ -241,10 +237,11 @@ export const updateUser = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
+    user,
   });
 });
 
-// Delete user  => /api/v1/admin/user/:id
+// Delete user  => /api/v1/admin/users/:id
 export const deleteUser = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findById(req.params.id);
 
@@ -254,7 +251,7 @@ export const deleteUser = catchAsyncErrors(async (req, res, next) => {
     );
   }
 
-  // Remove avatar form cloudinary
+  // Remove avatar from cloudinary
 
   const image_id = user?.avatar?.public_id;
   await cloudinary.v2.uploader.destroy(image_id);

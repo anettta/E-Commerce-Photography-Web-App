@@ -18,31 +18,31 @@ const Footer = () => {
               <h4 className="mb-3">About</h4>
               <ul className="list-unstyled">
                 <li>
-                  <Link to="text.html">Sustainable practice</Link>
+                  <Link to="/materials">Sustainable practice</Link>
                 </li>
 
                 <li>
-                  <Link to="faq.html">FAQ</Link>
+                  <Link to="/">Stories</Link>
                 </li>
                 <li>
-                  <Link to="/login">Sign in</Link>
+                  <Link to="/">Shop</Link>
                 </li>
               </ul>
             </div>
 
             <div className="col-lg-3 col-md-6">
               {/* <h4 className="mb-3">Top categories</h4> */}
-              <h4>Photography resources</h4>
+              <h4>Resources</h4>
               <ul className="list-unstyled">
                 <li>
-                  <Link to="category.html">List of contests</Link>
+                  <Link to="/contests">Contests</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="category.html">Inspiration Board</Link>
                 </li>
                 <li>
                   <Link href="category.html">Exercise creatively with me</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
 

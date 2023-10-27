@@ -9,7 +9,6 @@ import Search from "./Search";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../actions/userActions";
 import { clearCart } from "../../actions/cartActions";
-import { CDropdownDivider } from "@coreui/react";
 
 const Header = () => {
   const alert = useAlert();
@@ -37,7 +36,7 @@ const Header = () => {
       <div
         className="top-bar py-2"
         id="topBar"
-        style={{ backgroundColor: "#36454f", fontFamily: "avenir" }}
+        style={{ backgroundColor: "#36454f", fontFamily: "Avenir" }}
       >
         <div className="container px-lg-0 text-light py-1">
           <div className="row d-flex align-items-center">
@@ -268,10 +267,10 @@ const Header = () => {
           </div>
 
           <div id="navigation" className="collapse navbar-collapse">
-            <ul className="navbar-nav mr-auto">
+            <ul className="navbar-nav mr-auto" style={{ fontFamily: "avenir" }}>
               <li className="nav-item">
                 <Link to="/" className="nav-link">
-                  Home
+                  Stories
                 </Link>
               </li>
               <li className="nav-item dropdown menu-large">
@@ -282,7 +281,7 @@ const Header = () => {
                   data-delay="200"
                   className="dropdown-toggle nav-link"
                 >
-                  Photography<b className="caret"></b>
+                  Resources<b className="caret"></b>
                 </Link>
                 <ul className="dropdown-menu megamenu">
                   <li>
@@ -312,47 +311,28 @@ const Header = () => {
                           </li>
                         </ul>
                       </div> */}
-                      <div className="col-md-6 col-lg-4">
-                        <h5>Stories</h5>
+                      <div className="col-md-6 col-lg-12">
+                        <h5>Photography</h5>
                         <ul className="list-unstyled mb-3">
                           <li className="nav-item">
-                            <Link to="category.html" className="nav-link">
-                              New Palz, NY
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link to="category.html" className="nav-link">
-                              Walk along Tamarindo Beach
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link to="category.html" className="nav-link">
-                              NYBG in four seasons
+                            <Link to="/contests" className="nav-link">
+                              Contests
                             </Link>
                           </li>
                         </ul>
                       </div>
-                      <div className="col-md-6 col-lg-4">
-                        <h5>Services</h5>
+                      {/* <div className="col-md-6 col-lg-6">
+                        <h5>String Art On Paper</h5>
                         <ul className="list-unstyled mb-3">
                           <li className="nav-item">
                             <Link to="category.html" className="nav-link">
-                              Portrait session
+                              History
                             </Link>
                           </li>
-                          <li className="nav-item">
-                            <Link to="category.html" className="nav-link">
-                              Product photography
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link to="category.html" className="nav-link">
-                              Your request
-                            </Link>
-                          </li>
+                        
                         </ul>
-                      </div>
-                      <div className="col-md-6 col-lg-4">
+                      </div> */}
+                      {/* <div className="col-md-6 col-lg-4">
                         <h5>Resources</h5>
                         <ul className="list-unstyled mb-3">
                           <li className="nav-item">
@@ -376,12 +356,18 @@ const Header = () => {
                             </Link>
                           </li>
                         </ul>
-                      </div>
+                      </div> */}
                     </div>
                   </li>
                 </ul>
               </li>
-              <li className="nav-item dropdown menu-large">
+
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  Shop
+                </Link>
+              </li>
+              {/* <li className="nav-item dropdown menu-large">
                 <Link
                   to="/"
                   data-toggle="dropdown"
@@ -412,7 +398,7 @@ const Header = () => {
                     </div>
                   </li>
                 </ul>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

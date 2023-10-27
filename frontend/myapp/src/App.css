@@ -131,6 +131,37 @@ body {
   flex: 1;
 }
 
+.contest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.contest img {
+  width: 300px;
+  border-radius: 5px;
+}
+
+.contest img:hover {
+  box-shadow: 0 0 5px #333;
+  color: #333;
+}
+/* .border-bottom {
+  border-bottom: 10px solid #333;
+  width: 200px;
+} */
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #f0faf7;
+  font-weight: 800;
+  text-shadow: 2px 2px 0 #333;
+}
+
 @media (min-width: 768px) {
   .flex-md-equal > * {
     -ms-flex: 1;
@@ -447,7 +478,7 @@ body {
   background-blend-mode: overlay;
   background-image: url("https://res.cloudinary.com/ducc0wskb/image/upload/v1697651871/Delicate_Watercolor_Zoom_Virtual_Background_kftezq.png");
   padding: 100px 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Avenir;
 }
 
 #footer ul {
