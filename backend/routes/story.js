@@ -1,7 +1,10 @@
 import express from "express";
 import {
+  createStoryComment,
+  deleteComment,
   deleteStory,
   getStories,
+  getStoryComments,
   getStoryDetails,
   newStory,
   updateStory,
@@ -21,5 +24,14 @@ router
 router
   .route("/stories/:id")
   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteStory);
+
+router
+  .route("/comments")
+  .get(isAuthenticatedUser, getStoryComments)
+  .put(isAuthenticatedUser, createStoryComment);
+
+router
+  .route("/admin/comments")
+  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteComment);
 
 export default router;

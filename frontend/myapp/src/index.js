@@ -3,10 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
-import store from "./store";
+
 import "@coreui/coreui/dist/css/coreui.min.css";
 import { positions, transitions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
+import { store } from "./redux/store";
 
 const options = {
   timeout: 5000,

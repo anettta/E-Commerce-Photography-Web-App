@@ -1,9 +1,13 @@
-import React, { Fragment } from "react";
-
+import React from "react";
 import "react-slideshow-image/dist/styles.css";
-import { Slide, Zoom } from "react-slideshow-image";
+import { Zoom } from "react-slideshow-image";
+import Story from "../story/Story.jsx";
+import { useGetStoriesQuery } from "../../redux/api/storiesApi";
+import Loader from "./Loader.jsx";
 
 const CarouselStories = () => {
+  const { data, isLoading } = useGetStoriesQuery();
+
   const responsiveSettings = [
     {
       breakpoint: 800,
@@ -20,120 +24,28 @@ const CarouselStories = () => {
       },
     },
   ];
-  const images = [
-    "/images/1.jpeg",
-    "/images/2.jpeg",
-    "/images/3.jpg",
-    "/images/4.jpg",
-    "/images/5.jpg",
-    "/images/6.jpg",
-  ];
-
+  if (isLoading) return <Loader />;
   return (
     <div>
       <Zoom
         scale={1.4}
         responsive={responsiveSettings}
         pauseOnHover={true}
-        arrows={false}
+        arrows={true}
         canSwipe={true}
       >
-        <div className="col-xl-12 col-sm-12 mb-3">
-          <div className="each-slide-effect">
-            <div
-              className="img-fluid"
-              style={{ backgroundImage: `url(${images[3]})` }}
-            >
-              <div className="text-center">
-                <h1 className="title">Culebra</h1>
-                <button className="btn btn-dark ">Learn more</button>
+        <section id="products" className="mt-5">
+          <div class="album py-5 ">
+            <div class="container">
+              <div class="row">
+                {data?.stories?.map((story) => (
+                  <Story story={story} />
+                ))}
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-xl-12 col-sm-12 mb-3">
-          <div className="each-slide-effect">
-            <div
-              className="img-fluid"
-              style={{ backgroundImage: `url(${images[4]})` }}
-            >
-              <div className="text-center">
-                <h1 className="title">Central Park</h1>
-                <button className="btn btn-dark ">Learn more</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-xl-12 col-sm-12 mb-3">
-          <div className="each-slide-effect">
-            <div
-              className="img-fluid"
-              style={{ backgroundImage: `url(${images[5]})` }}
-            >
-              <div className="text-center">
-                <h1 className="title">Aspen</h1>
-                <button className="btn btn-dark ">Learn more</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        </section>
       </Zoom>
-      <div>
-        {/* <Fragment>
-          <div className="">
-            <h1 className="my-4">Stories</h1>
-
-            <Slide
-              responsive={responsiveSettings}
-              indicators={true}
-              pauseOnHover={true}
-              arrows={false}
-              canSwipe={true}
-              slidesToShows={3}
-            >
-              <div className="col-xl-12 col-sm-12 mb-3">
-                <div className="each-slide-effect">
-                  <div
-                    className="img-fluid"
-                    style={{ backgroundImage: `url(${images[0]})` }}
-                  >
-                    <div className="text-center">
-                      <h1 className="title">Culebra</h1>
-                      <button className="btn btn-info">Learn more</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-12 col-sm-12 mb-3">
-                <div className="each-slide-effect">
-                  <div
-                    className="img-fluid"
-                    style={{ backgroundImage: `url(${images[1]})` }}
-                  >
-                    <div className="text-center">
-                      <h1 className="title">Central Park</h1>
-                      <button className="btn btn-info ">Learn more</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-12 col-sm-12 mb-3">
-                <div className="each-slide-effect">
-                  <div
-                    className="img-fluid"
-                    style={{ backgroundImage: `url(${images[2]})` }}
-                  >
-                    <div className="text-center">
-                      <h1 className="title">Aspen</h1>
-                      <button className="btn btn-info ">Learn more</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Slide>
-          </div>
-        </Fragment> */}
-      </div>
     </div>
   );
 };

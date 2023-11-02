@@ -67,9 +67,9 @@ body {
 }
 
 /* Bottom left text */
-.bottom-left {
+.top-left {
   position: absolute;
-  bottom: 8px;
+  top: 8px;
   left: 16px;
 }
 

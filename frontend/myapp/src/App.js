@@ -9,6 +9,7 @@ import store from "./store";
 import { loadUser } from "./actions/userActions";
 import ProtectedRoute from "./components/route/ProtectedRoute";
 import axios from "axios";
+import { Toaster } from "react-hot-toast";
 
 // Stripe Imports
 import { loadStripe } from "@stripe/stripe-js";
@@ -48,9 +49,10 @@ import ProductReviews from "./components/admin/ProductReviews";
 import NotFound from "./components/layout/NotFound";
 import Contests from "./components/navbarPages/contests.jsx";
 import Materials from "./components/footerPages/materials.jsx";
+import StoryDetails from "./components/story/StoryDetails.jsx";
 
 function App() {
-  const [stripeApiKey, setStripeApiKey] = useState("");
+  // const [stripeApiKey, setStripeApiKey] = useState("");
   const [loadLogo, setLoadLogo] = useState(true);
 
   const spinner = document.getElementById("spinner");
@@ -61,39 +63,42 @@ function App() {
     }, 1000);
   }
 
-  useEffect(() => {
-    store.dispatch(loadUser());
-    async function getStripeApiKey() {
-      const { data } = await axios.get("/api/v1/stripeapi");
-      setStripeApiKey(data.stripeApiKey);
-    }
-    getStripeApiKey();
-  }, []);
-  const { user, isAuthenticated, loading } = useSelector((state) => state.auth);
+  // useEffect(() => {
+  //   store.dispatch(loadUser());
+  //   async function getStripeApiKey() {
+  //     const { data } = await axios.get("/api/v1/stripeapi");
+  //     setStripeApiKey(data.stripeApiKey);
+  //   }
+  //   getStripeApiKey();
+  // }, []);
+  // const { user, isAuthenticated, loading } = useSelector((state) => state.auth);
 
   return (
     !loadLogo && (
       <Router>
         <div className="App">
-          <Header />
+          <Toaster position="top-center" />
+          {/* <Header /> */}
 
           <div className="container container-fluid">
             <Routes>
               <Route path="/" element={<Home />} exact />
-              <Route path="/contests" element={<Contests />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/stories/:id" element={<StoryDetails />} />
+              {/* <Route path="/contests" element={<Contests />} />
               <Route path="/materials" element={<Materials />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/cart" element={<Cart />} exact />
               <Route path="/search/:keyword" element={<Home />} />
-              <Route path="/product/:id" element={<ProductDetails />} />
+          
               <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route
+              <Route path="/register" element={<Register />} /> */}
+              {/* <Route
                 path="/password/forgot"
                 element={<ForgotPassword />}
                 exact
-              />
-              {stripeApiKey && (
+              /> */}
+              {/* {stripeApiKey && (
                 <Route
                   path="/payment"
                   element={
@@ -102,14 +107,14 @@ function App() {
                     </Elements>
                   }
                 />
-              )}
+              )} */}
 
-              <Route
+              {/* <Route
                 path="/password/reset/:token"
                 element={<NewPassword />}
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/me"
                 element={
                   <ProtectedRoute>
@@ -117,32 +122,32 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/shipping"
                 element={
                   <ProtectedRoute>
                     <Shipping />
                   </ProtectedRoute>
                 }
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/order/confirm"
                 element={
                   <ProtectedRoute>
                     <ConfirmOrder />
                   </ProtectedRoute>
                 }
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/success"
                 element={
                   <ProtectedRoute>
                     <OrderSuccess />
                   </ProtectedRoute>
                 }
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/me/update"
                 element={
                   <ProtectedRoute>
@@ -150,8 +155,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/password/update"
                 element={
                   <ProtectedRoute>
@@ -159,8 +164,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/orders/me"
                 element={
                   <ProtectedRoute>
@@ -168,8 +173,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/order/:id"
                 element={
                   <ProtectedRoute>
@@ -177,8 +182,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/dashboard"
                 isAdmin={true}
                 element={
@@ -187,8 +192,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/admin/products"
                 isAdmin={true}
                 element={
@@ -197,8 +202,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/admin/orders"
                 isAdmin={true}
                 element={
@@ -207,8 +212,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/admin/reviews"
                 isAdmin={true}
                 element={
@@ -217,8 +222,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/admin/users"
                 isAdmin={true}
                 element={
@@ -227,8 +232,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/admin/user/:id"
                 isAdmin={true}
                 element={
@@ -237,8 +242,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/admin/product/new"
                 isAdmin={true}
                 element={
@@ -247,8 +252,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/admin/product/:id"
                 isAdmin={true}
                 element={
@@ -257,8 +262,8 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/admin/order/:id"
                 isAdmin={true}
                 element={
@@ -267,12 +272,12 @@ function App() {
                   </ProtectedRoute>
                 }
                 exact
-              />
+              /> */}
             </Routes>
           </div>
-          {!loading && (!isAuthenticated || user.role !== "admin") && (
+          {/* {!loading && (!isAuthenticated || user.role !== "admin") && (
             <Footer />
-          )}
+          )} */}
         </div>
       </Router>
     )
