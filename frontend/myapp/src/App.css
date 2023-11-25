@@ -3,10 +3,10 @@ body {
   font-family: "Avenir";
   width: 100%;
   height: 100%;
-  /* margin: 0px;
-  padding: 0px; */
+  margin: 0px;
+  padding: 0px;
   color: #36454f;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   background-color: #f0faf7;
 
   /* background-color: #ffffff; */
@@ -253,6 +253,7 @@ body {
 @media (min-width: 992px) {
   .navbar .dropdown:hover .dropdown-menu {
     display: block;
+    overflow: visible !important;
   }
 }
 
@@ -339,6 +340,12 @@ body {
 .menu-large a.nav-link {
   padding: 7px !important;
   padding-left: 0 !important;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* styling search bar */
@@ -975,17 +982,15 @@ body {
   }
 }
 /* Pagination */
-
 .pagination {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  margin: 20px;
+  color: #14927d;
 }
 
 .page-item.active .page-link {
   background-color: #36454f;
   border-color: #36454f;
+
+  text-decoration: none;
 }
 
 .page-link {
@@ -993,7 +998,20 @@ body {
 }
 
 .page-link:hover {
-  color: #28343b;
+  color: #36454f;
+}
+#filter_form .row .col {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#filter_form button {
+  background-color: #14927d;
+  border-color: #14927d;
+}
+
+.filter {
+  margin-top: 5.8rem;
 }
 
 /* Admin Sidebar */

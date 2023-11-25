@@ -1,26 +1,27 @@
 import React, { Fragment } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
-import { useAlert } from "react-alert";
+import { useSelector } from "react-redux";
 
 import "../../App.css";
 
 import Search from "./Search";
-import { Link } from "react-router-dom";
-import { logoutUser } from "../../actions/userActions";
-import { clearCart } from "../../actions/cartActions";
+import { Link, useNavigate } from "react-router-dom";
+
+import { useGetMeQuery } from "../../redux/api/userApi";
+import { useLazyLogoutQuery } from "../../redux/api/authApi";
 
 const Header = () => {
-  const alert = useAlert();
-  const dispatch = useDispatch();
+  const { isLoading } = useGetMeQuery();
+  const [logout] = useLazyLogoutQuery();
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const cartItems = 0;
 
-  const { user, loading } = useSelector((state) => state.auth);
-  const { cartItems } = useSelector((state) => state.cart);
+  // const { cartItems } = useSelector((state) => state.cart);
 
   const logoutHandler = () => {
-    dispatch(logoutUser());
-    dispatch(clearCart(cartItems));
-    alert.success("Logged out successfully");
+    logout();
+    navigate(0);
   };
 
   return (
@@ -32,16 +33,16 @@ const Header = () => {
           </h6>
         </p>
       </div> */}
-
-      <div
-        className="top-bar py-2"
-        id="topBar"
-        style={{ backgroundColor: "#36454f", fontFamily: "Avenir" }}
-      >
-        <div className="container px-lg-0 text-light py-1">
-          <div className="row d-flex align-items-center">
-            <div className="col-md-6 d-md-block d-none">
-              {/* <p className="mb-0 text-xs greenColor ml-1">
+      <nav className="navbar  row p-0 ">
+        <div
+          className="top-bar "
+          id="topBar"
+          style={{ backgroundColor: "#36454f", fontFamily: "Avenir" }}
+        >
+          <div className=" text-light m-2">
+            <div className="row d-flex align-items-center">
+              <div className="col-md-6 d-md-block d-none">
+                {/* <p className="mb-0 text-xs greenColor ml-1">
                 <Link
                   to="/"
                   style={{
@@ -53,174 +54,136 @@ const Header = () => {
                   Anna Gapyuk Creative Studio
                 </Link>
               </p> */}
-              <p
-                className="mb-0 text-xs"
-                style={{
-                  fontFamily: "avenir",
-                  fontWeight: "700",
-                  textDecoration: "none",
-                }}
-              >
-                Contact me at
-                <Link
-                  className="text-xs social-link-hover "
-                  to="mailto: annagapyuk@gmail.com"
+                <p
+                  className="mb-0 text-xs"
                   style={{
+                    fontFamily: "avenir",
+                    fontWeight: "700",
                     textDecoration: "none",
-                    marginLeft: "4px",
-                    color: "#14927d",
                   }}
                 >
-                  annagapyuk@gmail.com
-                </Link>
-              </p>
-            </div>
-            <div className="col-12 col-md-6">
-              <div className="d-flex justify-content-center justify-content-center align-items-center">
-                <ul className="list-inline d-block d-md-none mb-0">
-                  <li className="list-inline-item ">
-                    <Link
-                      className="  social-link-hover"
-                      to="mailto: annagapyuk@gmail.com"
-                    >
-                      <i className="fa fa-envelope"></i>
-                    </Link>
-                  </li>
-                </ul>
-                <div className="col-6 col-6">
-                  <ul className="list-inline mb-0">
-                    <li className="justify-content-center justify-content-center">
-                      <Search />
-                    </li>
-                  </ul>
-                </div>
-                <div className="d-flex align-items-center">
-                  <ul className="list-inline mb-0 ">
-                    <li className="list-inline-item ">
-                      {user ? (
-                        <div className="ml-4 dropdown d-inline ">
-                          <Link
-                            to="#!"
-                            className=" dropdown-toggle  text-xs fw-bold text-reset"
-                            type="button"
-                            id="dropDownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <figure className="avatar avatar-nav">
-                              <img
-                                src={user.avatar && user.avatar.url}
-                                alt={user && user.name}
-                                className="rounded-circle"
-                              />
-                            </figure>
-                            <span className="d-none d-md-inline-block ">
-                              {user && user.name}
-                            </span>
-                          </Link>
-
-                          <div
-                            className="dropdown-menu"
-                            aria-labelledby="dropDownMenuButton"
-                          >
-                            {user && user.role === "admin" && (
-                              <Link
-                                className="dropdown-item "
-                                to="/dashboard"
-                                style={{ color: "#6cceb4", fontWeight: "700" }}
-                              >
-                                Dashboard
-                              </Link>
-                            )}
-
-                            <Link className="dropdown-item " to="/orders/me">
-                              <b>Orders</b>
-                            </Link>
-                            <Link className="dropdown-item" to="/me">
-                              <b>Profile</b>
-                            </Link>
-                            <Link
-                              className="dropdown-item text-danger"
-                              to="/"
-                              onClick={logoutHandler}
-                              style={{ fontWeight: "700" }}
-                            >
-                              Sign out
-                            </Link>
-                          </div>
-                        </div>
-                      ) : (
-                        !loading && (
-                          <Link
-                            to="/login"
-                            className="text-xs fw-bold text-reset "
-                            id="login_btn"
-                          >
-                            <i class="fa fa-sign-in me-2 "></i>
-                            <span class="d-none d-md-inline-block  ">
-                              sign in
-                            </span>
-                          </Link>
-                        )
-                      )}
-                    </li>
+                  Contact me at
+                  <Link
+                    className="text-xs social-link-hover "
+                    to="mailto: annagapyuk@gmail.com"
+                    style={{
+                      textDecoration: "none",
+                      marginLeft: "4px",
+                      color: "#14927d",
+                    }}
+                  >
+                    annagapyuk@gmail.com
+                  </Link>
+                </p>
+              </div>
+              <div className="col-12 col-md-6">
+                <div className="d-flex justify-content-center align-items-center">
+                  <ul className="list-inline d-block d-md-none mb-0">
                     <li className="list-inline-item ">
                       <Link
-                        to="/cart"
-                        className="social-link-hover text-xs  fw-bold "
-                        style={{ textDecoration: "none" }}
+                        className="  social-link-hover"
+                        to="mailto: annagapyuk@gmail.com"
                       >
-                        <i className="fas fa-shopping-cart ">
-                          <span id="cart_count">{cartItems.length}</span>
-                        </i>
-
-                        {/* <span className="cart d-none d-md-inline-block">
-                        Cart
-                      </span> */}
+                        <i className="fa fa-envelope"></i>
                       </Link>
                     </li>
-                    {/* <li className="list-inline-item  m-1">
-                    <Link
-                      className="text-xs social-link-hover"
-                      to="https://github.com/anettta"
-                      title="Github"
-                    >
-                      <i className="fab fa-github"></i>
-                    </Link>
-                  </li> */}
-                    {/* <li class="list-inline-item text-gray-600 m-1">
-                    <Link
-                      class="text-xs social-link-hover"
-                      to="#"
-                      title="Instagram"
-                    >
-                      <i class="fab fa-instagram"></i>
-                    </Link>
-                  </li> */}
-                    {/* <li className="list-inline-item text-gray-600 m-1">
-                    <Link
-                      className="text-xs social-link-hover"
-                      to="https://www.linkedin.com/in/annagapyuk/"
-                      title="Linkedin"
-                    >
-                      <i className="fab fa-linkedin-in"></i>
-                    </Link>
-                  </li> */}
                   </ul>
+                  <div className="col-6 col-6">
+                    <Search />
+                  </div>
+
+                  {user ? (
+                    <div className=" dropdown ">
+                      <Link
+                        to="/"
+                        className="dropdown-toggle m-2 text-white"
+                        type="button"
+                        id="dropDownMenuLink"
+                        data-toggle="dropdown"
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                      >
+                        <figure className="avatar avatar-nav">
+                          <img
+                            src={user?.avatar?.url}
+                            alt={user?.name}
+                            className="rounded-circle"
+                          />
+                        </figure>
+                        <span className="d-none d-md-inline-block ">
+                          {user?.name}
+                        </span>
+                      </Link>
+                      <ul
+                        className="dropdown-menu  "
+                        aria-labelledby="dropDownMenuLink"
+                      >
+                        {user?.role === "admin" && (
+                          <Link
+                            className="dropdown-item "
+                            to="/admin/dashboard"
+                            style={{
+                              color: "#6cceb4",
+                              fontWeight: "700",
+                            }}
+                          >
+                            Dashboard
+                          </Link>
+                        )}
+
+                        <Link className="dropdown-item " to="/me/orders">
+                          <b>Orders</b>
+                        </Link>
+                        <Link className="dropdown-item" to="/me/profile">
+                          <b>Profile</b>
+                        </Link>
+                        <Link
+                          className="dropdown-item text-danger"
+                          to="/"
+                          onClick={logoutHandler}
+                          style={{ fontWeight: "700" }}
+                        >
+                          Sign out
+                        </Link>
+                      </ul>
+                    </div>
+                  ) : (
+                    !isLoading && (
+                      <Link
+                        to="/login"
+                        className="btn ms-4 text-light"
+                        id="login_btn"
+                      >
+                        <i className="fa fa-sign-in me-2 "></i>
+                        sign in
+                      </Link>
+                    )
+                  )}
+
+                  <Link
+                    to="/cart"
+                    className="social-link-hover text-xs  fw-bold "
+                    style={{ textDecoration: "none" }}
+                  >
+                    <i className="fas fa-shopping-cart ">
+                      <span id="cart_count">{cartItems.length}</span>
+                    </i>
+
+                    <span className="cart d-none d-md-inline-block">Cart</span>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
 
       <nav
-        className="navbar navbar-expand-lg "
+        className="navbar navbar-expand-lg  "
         style={{ backgroundColor: "#f0faf7" }}
       >
-        <div className="container">
-          <Link to="/" className="navbar-brand home">
+        <div className="container ">
+          <Link to="/" className="navbar-brand ">
             <img
               src="https://res.cloudinary.com/ducc0wskb/image/upload/v1695668560/Anna_Gapyuk_1_copy_9_bhk8ly.png"
               width="73px"

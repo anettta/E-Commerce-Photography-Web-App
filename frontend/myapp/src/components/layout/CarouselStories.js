@@ -25,19 +25,20 @@ const CarouselStories = () => {
     },
   ];
   if (isLoading) return <Loader />;
+
   return (
     <div>
       <Zoom
         scale={1.4}
         responsive={responsiveSettings}
         pauseOnHover={true}
-        arrows={true}
+        arrows={false}
         canSwipe={true}
       >
         <section id="products" className="mt-5">
-          <div class="album py-5 ">
-            <div class="container">
-              <div class="row">
+          <div className="album py-5 ">
+            <div className="container">
+              <div className="row">
                 {data?.stories?.map((story) => (
                   <Story story={story} />
                 ))}

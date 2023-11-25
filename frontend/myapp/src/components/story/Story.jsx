@@ -16,9 +16,7 @@ const Story = ({ story }) => {
                   : "https://res.cloudinary.com/ducc0wskb/image/upload/v1695668560/Anna_Gapyuk_1_copy_9_bhk8ly.png"
               }
             />
-            <div className="bottom-left badge badge-info card-text mt-2">
-              {story?.title}
-            </div>
+            <h1 className="centered">{story?.title}</h1>
           </div>
         </Link>
       </div>

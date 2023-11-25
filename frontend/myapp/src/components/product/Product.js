@@ -2,10 +2,10 @@ import React, { Fragment } from "react";
 import StarRatings from "react-star-ratings";
 import { Link } from "react-router-dom";
 
-const Product = ({ product, col }) => {
+const Product = ({ product, columnSize }) => {
   return (
     <>
-      <div className={`col-sm-12 col-md-6 col-lg-${col} my-3  `}>
+      <div className={`col-sm-12 col-md-6 col-lg-${columnSize} my-3  `}>
         {/* <div classNameName="mb-3"> 
         <span id="cat">{product.category.toUpperCase()}</span>
       </div> */}

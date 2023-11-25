@@ -1,25 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-
-import Form from "react-bootstrap/Form";
 
 const Search = () => {
   const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
 
-  const searchHandler = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
 
-    if (keyword.trim()) {
-      navigate(`/search/${keyword}`);
+    if (keyword?.trim()) {
+      navigate(`/?keyword=${keyword}`);
     } else {
       navigate("/");
     }
   };
 
   return (
-    <form onSubmit={searchHandler}>
+    <form onSubmit={submitHandler}>
       <div className="input-group">
         <input
           type="text"

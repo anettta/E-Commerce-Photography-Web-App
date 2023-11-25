@@ -4,45 +4,38 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Please enter your name"],
-    maxLength: [50, "Your name cannot exceed 50 characters"],
-  },
-  email: {
-    type: String,
-    required: [true, "Please enter your email"],
-    unique: true,
-    validate: [validator.isEmail, "Please enter valid email"],
-  },
-  password: {
-    type: String,
-    required: [true, "Please enter your password"],
-    minlength: [6, "Your password must be longer than 6 characters"],
-    select: false, // means that we don't send password with the user response even though paswword is encrypted
-  },
-  avatar: {
-    public_id: {
+const userSchema = new mongoose.Schema(
+  {
+    name: {
       type: String,
-      required: false,
+      required: [true, "Please enter your name"],
+      maxLength: [50, "Your name cannot exceed 50 characters"],
     },
-    url: {
+    email: {
       type: String,
-      required: false,
+      required: [true, "Please enter your email"],
+      unique: true,
+      validate: [validator.isEmail, "Please enter valid email"],
     },
+    password: {
+      type: String,
+      required: [true, "Please enter your password"],
+      minlength: [6, "Your password must be longer than 6 characters"],
+      select: false, // means that we don't send password with the user response even though paswword is encrypted
+    },
+    // avatar: {
+    //   public_id: String,
+    //   url: String,
+    // },
+    role: {
+      type: String,
+      default: "user",
+    },
+    resetPasswordToken: String,
+    resetPasswordExpire: Date,
   },
-  role: {
-    type: String,
-    default: "user",
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  resetPasswordToken: String,
-  resetPasswordExpire: Date,
-});
+  { timestamps: true }
+);
 
 // Encrypting password before saving user
 userSchema.pre("save", async function (next) {

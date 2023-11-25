@@ -49,7 +49,7 @@ const StoryDetails = () => {
           <p id="product_seller mb-3">
             Author: <strong>{story?.author}</strong>
           </p>
-          <p className="badge badge-info">{story?.category}</p>
+          {/* <p className="badge badge-info">{story?.category}</p> */}
         </div>
         <span id="no_of_reviews">({story?.numOfComments} Comments)</span>
       </div>
